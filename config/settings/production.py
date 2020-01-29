@@ -63,7 +63,7 @@ X_FRAME_OPTIONS = 'DENY'
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['www.invento2020.com', 'invento20.herokuapp.com', 'invento2020.com', '184.168.131.241'])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['www.invento2020.com'])
 # END SITE CONFIGURATION
 
 INSTALLED_APPS += ['gunicorn', ]

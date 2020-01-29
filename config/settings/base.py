@@ -104,7 +104,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ('Hemang', 'heamngshornur@gmail.com'),
+    ("""Biswas B""", 'hello.biswasb@gmail.com'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -116,7 +116,7 @@ MANAGERS = ADMINS
 # Uses django-environ to accept uri format
 # See: https://django-environ.readthedocs.io/en/latest/#supported-types
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://Hemang:hemang@127.0.0.1/inventodb'),
+    'default': env.db('DATABASE_URL', default='postgres://postgres:1235@127.0.0.1/invento'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 

@@ -1808,10 +1808,6 @@
 		color: #ffffff;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
-	}
-
 	blockquote {
 		border-left-color: rgba(255, 255, 255, 0.15);
 	}
@@ -2503,7 +2499,7 @@
 		}
 
 			ul.alt li {
-				border-top: solid 1px;
+				border-top: solid 0px;
 				padding: 0.5em 0;
 			}
 
@@ -3809,12 +3805,13 @@
 		}
 
 		#footer .copyright {
-		    color: #ffffff;
+			color: #676d71;
 			font-size: 0.9em;
 			margin: 0 0 2em 0;
 			padding: 0;
-			text-align: center;  
-		}.
+			text-align: center;
+		}
+
 			#footer .copyright .icons {
 				margin: 2em 0 0 0;
 			}

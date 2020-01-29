@@ -1,0 +1,141 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- HERO SECTION STARTS -->
+
+<div class="hero-section" style="background-image: url('{% static 'invento19/images/blog-home-banner.jpg' %}');">
+  <div class="overlay overlay-bg" style="background: rgba(0, 0, 0, 0.7);"></div>
+            <div class="row">
+                  <div class="col-lg-12 hero-right">
+                        <div class="hero-image2 fadeInUp">
+                                <img src="{% static 'invento19/images/text1.png' %}" class="img wow fadeInUp" data-wow-delay="0.3s" alt="">
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+
+<!-- HERO SECTION ENDS -->
+  <section class="recent-blog-area section-gap">
+      <div class="container-fluid px-md-5">
+          <div class="row justify-content-center mb-5 pb-3">
+              <div class="col-md-7 heading-section ftco-animate text-center">
+                  <h2 class="mb-1"><span style="font-size: xx-large;">CAMPUS AMBASSADOR</h2></span>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-8 pb-30 header-text">
+                  <p>
+                     <span style="font-weight: bold; font-size: x-large;"> Refer participants for technical, arts and general shows for</span><br><span style=" font-size: x-large; font-weight: bold; color: brown ";>INVENTO 2020 at GEC PALAKKAD</span>
+                  </p >
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-8 pb-30 header-text">
+                  <p>
+                     <span style="color: white; background: #151F79;border-radius: 30px;font-weight: bold; font-size:large;padding: 5px 10px;"> For each referral you'll earn 10% of the registration fee</span>
+                  </p >
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-8 pt-30 pb-10 header-text">
+                  <p>
+                     <span style="color:black;font-weight: bold; font-size:large;"> The Campus Ambassador who have successfully crossed level 3 with most points wins a trip to<br>
+                      <p>
+                          <span style="color: red;font-weight: bold; font-size: xx-large;"> Bali/Thailand/Srilanka Or win equivalent cash prizes!</span>
+                      </p>
+                  </span>
+                  </p >
+              </div>
+          </div>
+      </div>
+
+      <div class="container">
+          <div class="row align-items-center" style="margin-left: 15%;">
+
+              <div style="font-size: medium;font-weight: normal; " class="col-lg-5 col-md-6 pl-90 home-about-center">
+                  Start from LEVEL 0...
+              </div>
+              <div style="margin-left: 20px;" class="count pl-140">
+                  <div style="color:  #0D9201;" class="countd">
+                    <span id="days">LEVEL 1<br>500<br>Points</span>
+                  </div>
+
+                  <div style="color: #BB9200;" class="countd">
+                    <span id="hours">LEVEL 2<br>1500<br>Points</span>
+                  </div>
+
+                  <div style="color: #F11919" class="countd">
+                    <span id="minutes">LEVEL 3<br>3000<br>Points</span>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </section>
+
+
+  <section class="pb-60" id="highl">
+      <div class="container">
+          <div class="row d-flex justify-content-center">
+              <div class="menu-content pb-10 col-lg-8">
+                  <div class="title text-left">
+                      <span style="font-size: medium; padding-left: 53px; font-weight: bold; color:red ";>NB :</span> Payout min is ₹500
+                  </div>
+              </div>
+              <div class="menu-content pb-40 col-lg-8">
+                  <div class="title text-center">
+                      <span style="font-size: medium; font-weight: bold; color:red ";>Eg: CA referred a ₹1000 Registration. She/he gets 100 points equivalent to ₹100</span><br><br>
+                          <a href="#" class="primary-btn text-uppercase">Register Now</a>
+                  </div>
+              </div>
+          </div>
+          <br><br>
+
+          <div class="filters-content">
+              <div class="row grid">
+                  <div class="single-portfolio col-sm-6 all vector">
+                      <div class="relative">
+                          <div class="thumb">
+                              <div class="overlay overlay-bg">
+                              </div>
+                               <img class="image img-fluid" src="{% static 'invento19/images/p1.jpg' %}" alt="">
+                          </div>
+                              <a href="{% static 'invento19/images/p1.jpg' %}" class="img-pop-up">
+                                  <div class="middle">
+                                      <div class="text align-self-center d-flex"><img src="{% static 'invento19/images/preview.png' %}" alt="">
+                                      </div>
+                                  </div>
+                              </a>
+                      </div>
+                      <div class="p-inner pb-30">
+                      </div>
+                  </div>
+
+
+                  <div class="single-portfolio col-sm-6 all printing">
+                      <div class="relative">
+                          <div class="thumb">
+                              <div class="overlay overlay-bg"></div>
+                               <img class="image img-fluid" src="{% static 'invento19/images/p4.jpg' %}" alt="">
+                          </div>
+                          <a href="{% static 'invento19/images/p4.jpg' %}" class="img-pop-up">
+                            <div class="middle">
+                              <div class="text align-self-center d-flex"><img src="{% static 'invento19/images/preview.png' %}" alt=""></div>
+                            </div>
+                          </a>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </section>
+
+{% endblock %}

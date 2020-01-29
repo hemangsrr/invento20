@@ -5,16 +5,10 @@
 
             <!-- HERO SECTION STARTS -->
 
-            <div class="hero-section">
-                  <div class="container-fluid">
+            <div class="hero-section" style="background-image: url('{% static 'invento19/images/blog-home-banner.jpg' %}');">
+              <div class="overlay overlay-bg" style="background: rgba(0, 0, 0, 0.7);"></div>
                         <div class="row">
-                              <div class="col-lg-6 hero-left">
-                                    <div class="hero-image">
-                                            <img src="{% static 'invento19/images/logo.png' %}" class="img wow fadeInUp" data-wow-delay="0.3s" alt="">
-                                            <div class="College "><p>Government Engineering College Sreekrishnapuram</p></div>
-                                    </div>
-                              </div>
-                              <div class="col-lg-6 hero-right">
+                              <div class="col-lg-12 hero-right">
                                     <div class="hero-image2 fadeInUp">
                                             <img src="{% static 'invento19/images/text1.png' %}" class="img wow fadeInUp" data-wow-delay="0.3s" alt="">
                                     </div>
@@ -24,105 +18,196 @@
             </div>
 
             <!-- HERO SECTION ENDS -->
+            <section id="about" class="home-about-area pt-120">
+              <div class="container">
+                <div class="row align-items-center justify-content-between">
 
+                  <div class="col-lg-5 col-md-6 home-about-right">
+                    <p>
+                      Invento 2020 is the annual multifest of Government Engineering College Palakkad, a ground breaking amalgamation of science, art and technology. It is a union of its subsets, Invento, the flagship technical extravaganza of GEC Palakkad and Saptha, an arch inter-college Arts Festival. Attended by over 10000 people and spread over a course of 4 days, this year commemorates the 6th series of this premier festivity that vies to surpass it's predecessors in terms of grandeur and innovation. With the underlying theme, 'From Stone Age to Future' being focused upon,
+                       Invento 2020 is envisaged to shift paradigms and traverse beyond the limits of impossible horizons.
+                    </p>
+                    <a href="#" class="primary-btn text-uppercase">Know More</a>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 home-about-left">
+                    <img class="img-fluid" src="{% static 'invento19/images/about-img.png' %}" alt="">
+                  </div>
+
+                </div>
+              </div>
+            </section>
+
+            <section id="events" class="top-category-widget-area pt-90 pb-90 ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="single-cat-widget">
+                      <div class="content relative">
+                        <div class="overlay overlay-bg"></div>
+                          <a href="#" target="_blank">
+                            <div class="thumb">
+                             <img class="content-image img-fluid d-block mx-auto" src="{% static 'invento19/images/blog/cat-widget1.jpg' %}" alt="">
+                            </div>
+                            <div class="content-details">
+                              <h4 class="content-title mx-auto text-uppercase"> Technical<br> Events</h4>
+                            </div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="single-cat-widget">
+                      <div class="content relative">
+                        <div class="overlay overlay-bg"></div>
+                          <a href="#" target="_blank">
+                            <div class="thumb">
+                             <img class="content-image img-fluid d-block mx-auto" src="{% static 'invento19/images/blog/cat-widget2.jpg' %}" alt="">
+                            </div>
+                            <div class="content-details">
+                              <h4 class="content-title mx-auto text-uppercase">General<br> Events</h4>
+                            </div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="single-cat-widget">
+                      <div class="content relative">
+                        <div class="overlay overlay-bg"></div>
+                          <a href="#" target="_blank">
+                            <div class="thumb">
+                             <img class="content-image img-fluid d-block mx-auto" src="{% static 'invento19/images/blog/cat-widget3.jpg' %}" alt="">
+                            </div>
+                            <div class="content-details">
+                              <h4 class="content-title mx-auto text-uppercase">Saptha</h4>
+                            </div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="highlights" class="portfolio-area section-gap" id="portfolio">
+                      <div class="container">
+                      <div class="row d-flex justify-content-center">
+                          <div class="menu-content pb-40 col-lg-8">
+                              <div class="title text-center">
+                                  <h2 class="mb-18">Highlights</h2>
+                              </div>
+                          </div>
+                      </div>
+
+                          <div class="filters-content">
+                              <div class="row grid">
+                                  <div class="single-portfolio col-sm-3 all vector">
+                                    <div class="relative">
+                                      <div class="thumb">
+                                        <div class="overlay overlay-bg">
+                          </div>
+                                         <img class="image img-fluid" src="{% static 'invento19/images/p1.jpg' %}" alt="">
+                                      </div>
+                          <a href="{% static 'invento19/images/p1.jpg' %}" class="img-pop-up">
+                            <div class="middle">
+                              <div class="text align-self-center d-flex"><img src="{% static 'invento19/images/preview.png' %}" alt="">
+                              </div>
+                            </div>
+                          </a>
+                                    </div>
+                        <div class="p-inner">
+                          <h4>Musical Enigma</h4>
+                          <div class="cat">Know More</div>
+                        </div>
+                    </div>
+
+
+                                  <div class="single-portfolio col-sm-3 all raster">
+                                    <div class="relative">
+                                      <div class="thumb">
+                                        <div class="overlay overlay-bg"></div>
+                                         <img class="image img-fluid" src="{% static 'invento19/images/p2.jpg' %}" alt="">
+                                      </div>
+                        <a href="{% static 'invento19/images/p2.jpg' %}" class="img-pop-up">
+                          <div class="middle">
+                            <div class="text align-self-center d-flex"><img src="{% static 'invento19/images/preview.png' %}" alt=""></div>
+                          </div>
+                      </a>
+                                    </div>
+                      <div class="p-inner">
+                          <h4>Evolution Expo</h4>
+                        <div class="cat">Know More</div>
+                      </div>
+                    </div>
+
+
+                                  <div class="single-portfolio col-sm-3 all ui">
+                                    <div class="relative">
+                                      <div class="thumb">
+                                        <div class="overlay overlay-bg"></div>
+                                         <img class="image img-fluid" src="{% static 'invento19/images/p3.jpg' %}" alt="">
+                                      </div>
+                        <a href="{% static 'invento19/images/p3.jpg' %}" class="img-pop-up">
+                          <div class="middle">
+                            <div class="text align-self-center d-flex"><img src="{% static 'invento19/images/preview.png' %}" alt=""></div>
+                          </div>
+                        </a>
+                                     </div>
+                                      <div class="p-inner">
+                                          <h4>Space Expo</h4>
+                                          <div class="cat">Know More</div>
+                                      </div>
+                    </div>
+
+
+                                  <div class="single-portfolio col-sm-3 all printing">
+                                    <div class="relative">
+                                      <div class="thumb">
+                                        <div class="overlay overlay-bg"></div>
+                                         <img class="image img-fluid" src="{% static 'invento19/images/p4.jpg' %}" alt="">
+                                      </div>
+                        <a href="{% static 'invento19/images/p4.jpg' %}" class="img-pop-up">
+                          <div class="middle">
+                            <div class="text align-self-center d-flex"><img src="{% static 'invento19/images/preview.png' %}" alt=""></div>
+                          </div>
+                        </a>
+                                    </div>
+                                      <div class="p-inner">
+                        <h4>Art Expo</h4>
+                                          <div class="cat" style="color: red;" >Know More</div>
+                                      </div>
+                    </div>
+
+                              </div>
+                          </div>
+                      </div>
+            </section>
+
+            <section id="Campus Ambassador" class="home-about-area pt-40" style="background-color: #000; color: #fff">
+              <div class="container">
+                <div class="row align-items-center justify-content-between">
+
+                  <div class="col-lg-5 col-md-6 home-about-right">
+
+                    <h1 style="color: #fff;">Campus Ambassador</h1>
+                    <p>
+                      Invento 2020 brings before you The Campus Ambassador program but with a twist. This is not your regular CA program but one that takes you on a fun adventure with exciting cash prizes like never before waiting for you!
+                       <p>It's a race of survival against time, rising against all odds to collect points and by extension</p>
+                    </p>
+                    <a href="campus-ambassador" class="primary-btn text-uppercase">Know More</a>
+                  </div>
+                  <div class="col-lg-6 col-md-6 home-about-left">
+                    <img class="img-fluid" src="{% static 'invento19/images/about-img.png' %}" alt="">
+                  </div>
+                  <div class="col-lg-12 pt-90">
+                  </div>
+                </div>
+              </div>
+              <br>
+            </section>
             <!-- PRODUCT LIST STARTS -->
 
-          <div class="count">
-              <center>
-          <div class="countd">
-            <span id="days">00</span>
-            DAYS
-          </div>
 
-          <div class="countd">
-            <span id="hours">00</span>
-            HOURS
-          </div>
-
-          <div class="countd">
-            <span id="minutes">00</span>
-            MINUTES
-          </div>
-
-          <div class="countd">
-            <span id="seconds">00</span>
-            SECONDS
-          </div>
-                  </center>
-        </div>
-    </div>
-
-
-<script type="text/javascript">
-
-  var count = new Date("mar 5,2020 00:00:00").getTime();
-  var x = setInterval(function() {
-    var now = new Date().getTime();
-    var d = count - now;
-
-    var days = Math.floor(d/(1000*60*60*24));
-    var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    var minutes = Math.floor((d%(1000*60*60))/(1000*60));
-    var seconds = Math.floor((d%(1000*60))/1000);
-
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-
-    if(d <= 0){
-      clearInterval(x);
-    }
-  },1000);
-</script>
-
-                              
-
-                              <!-- <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="1.7s">
-                                <a href="product.html">
-                                      <p id="price">USD $25.00</p>
-                                      <img src="images/prod-07.jpg" alt="">
-                                      <p id="prod-desc">Daily Planner 2017 in Dark Brown</p>
-                                </a>
-                          </div> -->
-
-
-            <!-- PRODUCT LIST ENDS -->
-
-            <!-- BANNER SECTION STARTS -->
-
-            <div class="row prod-sec">
-
-                  <div class="text">
-      <h1>coming soon</h1>
-      </div>
-            </div>
-
-            <!-- BANNER SECTION ENDS -->
-
-            <!-- CATEGORIES SECTION STARTS -->
-
-            <div class="container-fluid">
-                  <div class="row section shop" style="text-align: justify">
-                      <p>
-                    Invento 2020 is the annual multifest of Government
-Engineering College Palakkad, a ground breaking
-amalgamation of science, art and technology. It is a
-union of its subsets, Invento, the flagship technical
-extravaganza of GEC Palakkad and Saptha, an arch
-inter-college Arts Festival. Attended by over 10000
-people and spread over a course of 4 days, this year
-commemorates the 6th series of this premier festivity
-that vies to surpass it's predecessors in terms of
-grandeur and innovation. With the underlying
-theme, 'From Stone Age to Future' being focused
-upon, Invento 2020 is envisaged to shift paradigms
-and traverse beyond the limits of impossible horizons.</p>
-                                 </div>
-            </div>
-
-            <!-- CATEGORIES SECTION ENDS -->
-
-            <br><br><br>
 
             {% endblock %}
