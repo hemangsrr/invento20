@@ -137,6 +137,16 @@ html, body {
       background-size: cover;
 }
 
+@media only screen and (max-width: 600px) {
+  .hero-section {
+      height: 50vh;
+      border-bottom: 1px solid #2a2d34;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+}
+}
+
 .hero-left {
       height: 100vh;
       background: #EEB609;
@@ -172,12 +182,7 @@ a {
       font-weight: 300;
 }
 
-.hero-image {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%);
-}
+
 
 .hero-image2 {
       position: absolute;
@@ -1336,6 +1341,17 @@ td, th {
   right: 0;
   top: 0;
   bottom: 0;
+}
+@media only screen and (max-width: 600px) {
+  .overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 44px;
+  bottom: 0;
+  height: 50vh;
+}
+
 }
 
 .container.fullwidth {
@@ -2927,13 +2943,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
-.overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
 
 .section-title {
   text-align: center;
