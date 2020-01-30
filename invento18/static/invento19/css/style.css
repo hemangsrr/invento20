@@ -229,6 +229,7 @@ img {
   .hero-image2 {
         position: absolute;
         top: 80%;
+        padding-top: 45px;
         left: 50%;
         width: 100%;
         transform: translate(-50%);
@@ -3017,6 +3018,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-right: auto;
     display: block;
   }
+}
+
+.home-about-area {
+  height: auto;
 }
 
 @media (max-width: 767px) {
