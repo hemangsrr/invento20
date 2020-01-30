@@ -2325,7 +2325,7 @@
 
 	input[type="checkbox"] + label,
 	input[type="radio"] + label {
-		color: #c0c2c4;
+		color: #000000;
 	}
 
 		input[type="checkbox"] + label:before,
@@ -3488,7 +3488,7 @@
 
 	@media screen and (max-width: 980px) {
 
-	
+
 
 		#header {
 			height: 44px;
