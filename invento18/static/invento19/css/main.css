@@ -3488,7 +3488,9 @@
 
 	@media screen and (max-width: 980px) {
 
-	
+		body {
+			padding-top: 44px;
+		}
 
 		#header {
 			height: 44px;
