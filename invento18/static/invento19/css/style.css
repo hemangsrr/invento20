@@ -60,7 +60,7 @@ html, body {
 
 .logo {
 
-  margin-right: 0px;
+  margin-right: 10px;
 }
 .logo img{
   position: absolute;
@@ -221,9 +221,13 @@ img {
 }
 
 @media(max-width: 900px) {
-      .hero-image2 {
-            display: inline-block;
-      }
+  .hero-image2 {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%);
+  }
       .media {
             position: absolute;
             left: 50%;
@@ -2585,6 +2589,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 673px) {
   #logo {
     margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
