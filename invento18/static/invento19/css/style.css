@@ -1343,6 +1343,22 @@ td, th {
   bottom: 0;
 }
 
+.overlay-banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+@media only screen and (max-width: 600px) {
+  .overlay-banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 50vh;
+}
 
 }
 
