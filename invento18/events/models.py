@@ -31,7 +31,9 @@ class Event(models.Model):
     townscript_code = models.CharField(max_length=50, blank=True)
     pdfurl = models.URLField(blank=True)
 
-
+    def admin_image(self):
+        return self.imageurl
+    admin_image.allow_tags = True
 
     def __str__(self):
         return self.title
