@@ -19,7 +19,8 @@ class Event(models.Model):
     ('oth', 'Other'),
     )
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=2000)
+    short_desc = models.TextField(max_length=500, default="something short")
+    long_desc = models.TextField(max_length=2000,default="something long")
     category = models.CharField(max_length=3, default='gen', choices=category_types)
     _type = models.CharField(max_length=3, default='wor', choices=type_types, verbose_name="Type")
     fee = models.PositiveIntegerField()# Set zero for free events
