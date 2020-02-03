@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^eee/$', departmentview, name='eee'),
     url(r'^it/$', departmentview, name='it'),
     url(r'^me/$', departmentview, name='me'),
+    url(r'^saptha/$', departmentview, name='sta'),
     url(r'^events/(?P<pk>\d+)/$', EventDetailView.as_view(), name='event-view'),
     url(r'^wp-content/uploads/2018/02/Invento18-CSE-Brochure.pdf',
         RedirectView.as_view(url="https://images.inventogec.org/invento18csebrochure.pdf")),
