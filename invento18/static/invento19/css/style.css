@@ -154,14 +154,14 @@ html, body {
 }
 @media only screen and (max-width: 600px) {
     .hero-section {
-      height: 60vh;
+      height: 40vh;
   }
 }
-@media only screen and (max-width: 440px) {
+/* @media only screen and (max-width: 440px) {
   .hero-section {
     height: 40vh;
 }
-}
+} */
 .hero-left {
       height: 100vh;
       background: #EEB609;
