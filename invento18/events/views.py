@@ -27,6 +27,8 @@ def departmentview(request):
             dept = 'it'
         elif request.path == '/me/':
             dept = 'me'
+        elif request.path == '/saptha/':
+            dept = 'sta'
 
         template_name = 'pages/' + dept + '_dept.html'
 
