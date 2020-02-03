@@ -427,7 +427,7 @@ color: #993399;
 
 .product-sec {
       padding-top: 60px;
-      height: 100vh;
+      height: 100%;
       border-bottom: 1px solid #2a2d34;
 }
 
@@ -533,6 +533,9 @@ input[type="radio"]:checked + label:before {
       .prod-opt {
             padding-bottom: 150px;
             margin-left: 5%;
+      }
+      .prod-right {
+        display: block;
       }
 }
 
