@@ -50,15 +50,16 @@ def event_register_view(request):
     # if form.is_valid():
     #     form.save()
     #     return redirect('home')
-    first_name = request.POST["first-name"]
-    last_name = request.POST["last-name"]
-    email = request.POST["email"]
-    mobile = request.POST["mobile-number"]
-    referal_code = request.POST["referal_code"]
-    event = request.POST["events"]
+    if request.method == 'POST':
+        first_name = request.POST["first-name"]
+        last_name = request.POST["last-name"]
+        email = request.POST["email"]
+        mobile = request.POST["mobile-number"]
+        referal_code = request.POST["referal_code"]
+        event = request.POST["events"]
 
-    event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
-    if event_register.save():
+        event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
+        event_register.save()
         return redirect('home')
     else:
         events = Event.objects.all()
