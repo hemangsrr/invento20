@@ -55,4 +55,3 @@ class Event_register(models.Model):
     phone = models.CharField(max_length=20)
     referal_code = models.CharField(max_length=50)
     event = models.CharField(max_length=50)
-    fee = models.CharField(max_length=20, default=0)
