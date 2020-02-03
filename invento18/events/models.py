@@ -10,6 +10,7 @@ class Event(models.Model):
     ('eee', 'EEE'),
     ('it', 'IT'),
     ('me', 'ME'),
+    ('sta','SAPTHA')
     )
     type_types=(
     ('wor', 'Workshops'),
