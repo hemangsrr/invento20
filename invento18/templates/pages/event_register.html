@@ -1,0 +1,78 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+<script>
+  $(document).ready(function(){
+    <!-- $('select>option:eq(1)').attr('selected', true); -->
+    <!-- $('#events').val(decodeURIComponent($.urlParam('event'))); -->
+    <!-- var str = jQuery.param( params ); -->
+
+    <!-- console.log($.urlParam('event')); -->
+    <!-- console.log(GetParameterValues('event')); -->
+    $('#events').val(GetParameterValues('event'));
+    function GetParameterValues(param) {
+      var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for (var i = 0; i < url.length; i++) {
+          var urlparam = url[i].split('=');
+          if (urlparam[0] == param) {
+              return urlparam[1];
+          }
+      }
+  }
+  });
+</script>
+<div class="page-content">
+    <div class="form-v9-content" style="background-image: url({% static 'invento19/images/form-v9.jpg' %});">
+        <form class="form-detail" action="/event-register/" method="post">{% csrf_token %}
+            <h2 style="color: #fff;">Registration Form</h2>
+             <div class="form-row-total">
+                <div class="form-row">
+                    <input type="text" name="first-name" id="first-name" class="input-text" placeholder="First Name" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="last-name" id="last-name" class="input-text" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="form-row-total">
+                <div class="form-row">
+                    <input type="text" name="email" id="email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+                </div>
+                <div class="form-row">
+                    <input type="number" name="mobile-number" id="mobile-number" class="input-text" placeholder="Mobile Number" required>
+                </div>
+            </div>
+            <div class="form-row-total">
+                <div class="form-row">
+                    <input type="text" name="referal_code" id="referal_code" class="input-text" placeholder="Referal Code" required>
+                </div>
+                <!-- <div class="form-row">
+                    <input type="text" name="text" id="department" class="input-text" placeholder=" Your Department" required>
+                </div> -->
+                <div class="form-row">
+                  <select name="events" id="events" class="input-text" required>
+                    <option value="event">Select Event</option>
+                    {% for event in events %}
+                    <option value="{{ event.title }}">{{ event.title }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+            </div>
+            <div class="form-row-total">
+              <!-- <div class="form-row">
+                  <input type="text" name="your-email" id="your-email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+              </div> -->
+              <!-- <div class="form-row">
+                  <input type="number" name="fees" id="fees" value="0" class="input-text" placeholder="Registration Fee">
+              </div> -->
+          </div>
+            <div class="form-row-last">
+                <input type="submit" name="register" class="register" value="Register">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

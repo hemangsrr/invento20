@@ -44,3 +44,14 @@ class Event(models.Model):
 
     def get_admin_url(self):
         return reverse("admin:%s_%s_change" % (self._meta.app_label, self._meta.model_name), args=(self.id,))
+
+
+class Event_register(models.Model):
+
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email =  models.EmailField(max_length=254)
+    phone = models.CharField(max_length=20)
+    referal_code = models.CharField(max_length=50)
+    event = models.CharField(max_length=50)
+    fee = models.CharField(max_length=20, default=0)

@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView
 from django.views.generic.base import ContextMixin
-from .models import Event
-
+from .models import Event, Event_register
+from .forms import EventRegisterForm
 class EventDetailView(DetailView):
     model = Event
     template_name = 'pages/event_detail.html'
@@ -42,4 +42,27 @@ def departmentview(request):
         'shows' : shows,
         'talks' : talks,
         })
-        
+
+def event_register_view(request):
+    # form = EventRegisterForm(request.POST or None)
+    # if form.is_valid():
+    #     form.save()
+    #     return redirect('home')
+    first_name = request.POST["first-name"]
+    last_name = request.POST["last-name"]
+    email = request.POST["email"]
+    mobile = request.POST["mobile-number"]
+    referal_code = request.POST["referal_code"]
+    event = request.POST["events"]
+    fees = request.POST["fees"]
+
+    event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event, fee=fees)
+    if event_register.save():
+        return redirect('home')
+    else:
+        events = Event.objects.all()
+        return render(request, 'pages/event_register.html', {'events': events})
+
+def event_register(request):
+    events = Event.objects.all()
+    return render(request, 'pages/event_register.html', {'events': events})
