@@ -56,9 +56,8 @@ def event_register_view(request):
     mobile = request.POST["mobile-number"]
     referal_code = request.POST["referal_code"]
     event = request.POST["events"]
-    fees = request.POST["fees"]
 
-    event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event, fee=fees)
+    event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
     if event_register.save():
         return redirect('home')
     else:
