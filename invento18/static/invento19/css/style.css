@@ -527,7 +527,7 @@ input[type="radio"]:checked + label:before {
       .product-sec .hero-image {
             display: block !important;
             padding-top: 40px;
-            height: 70vh;
+            /* height: 70vh; */
       }
 
       .prod-opt {
