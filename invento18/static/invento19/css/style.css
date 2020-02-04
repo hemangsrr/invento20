@@ -730,6 +730,12 @@ a, a:focus, a:hover {
   line-height: inherit;
 }
 
+.btn-info {
+    color: #fff !important;
+    background-color: #FF118F !important;
+    border-color: #000000 !important;
+}
+
 .gray-bg {
   background: #f9f9ff;
 }
