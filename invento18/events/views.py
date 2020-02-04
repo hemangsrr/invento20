@@ -75,13 +75,13 @@ def ambassador_register_view(request):
     #     form.save()
     #     return redirect('home')
     if request.method == 'POST':
-        first_name = request.POST["first-name"]
-        last_name = request.POST["last-name"]
+        first_name = request.POST["first_name"]
+        last_name = request.POST["last_name"]
         email = request.POST["email"]
-        mobile = request.POST["mobile-number"]
+        mobile = request.POST["phone"]
         college = request.POST["college"]
         department = request.POST["department"]
-        referal_code = request.POST["referalcode"]
+        referal_code = request.POST["referal_code"]
 
         ambassador_register = Ambassador_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, college=college, department=department, referal_code=referal_code)
         ambassador_register.save()
