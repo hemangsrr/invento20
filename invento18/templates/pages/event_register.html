@@ -4,14 +4,22 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<style>
+  .swal2-styled {
+    padding: 0px 2em !important;
+}
+</style>
 <script>
+  //URL Value access
   $(document).ready(function(){
-    <!-- $('select>option:eq(1)').attr('selected', true); -->
-    <!-- $('#events').val(decodeURIComponent($.urlParam('event'))); -->
-    <!-- var str = jQuery.param( params ); -->
+    //<!-- $('select>option:eq(1)').attr('selected', true); -->
+    //<!-- $('#events').val(decodeURIComponent($.urlParam('event'))); -->
+    //<!-- var str = jQuery.param( params ); -->
 
-    <!-- console.log($.urlParam('event')); -->
-     <!-- console.log(GetParameterValues('event').replace(/%20/g,' ')); -->
+    //<!-- console.log($.urlParam('event')); -->
+     //<!-- console.log(GetParameterValues('event').replace(/%20/g,' ')); -->
     $('#events').val(GetParameterValues('event').replace(/%20/g,' '));
     function GetParameterValues(param) {
       var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -24,9 +32,96 @@
   }
   });
 </script>
+<script>
+  //Register Form
+  $(document).on('submit','#event_register_form', function(e) {
+
+    // AJAX POST
+    e.preventDefault();
+    //console.log('am i called');
+        $.ajax({
+            type: 'POST',
+            url: '/event-register/',
+            data: {
+              first_name : $('#first-name').val(),
+              last_name : $('#last-name').val(),
+              email : $('#email').val(),
+              phone : $('#mobile-number').val(),
+              referal_code : $('#referal_code').val(),
+              event : $('#events').val(),
+              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+             },
+            success: function(data) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text:'Our Co-ordinates will Contact You.',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok'
+              }).then((result) => {
+                if (result.value) {
+              window.location = '/';
+            }
+          });
+            }
+        });
+
+    });
+</script>
+<script>
+  //mobile number validation
+  jQuery(document).ready(function($){
+    $cf = $('#mobile-number');
+    $cf.blur(function(e){
+        phone = $(this).val();
+        phone = phone.replace(/[^0-9]/g,'');
+        if (phone.length != 10)
+        {
+            alert('Phone number must be 10 digits.');
+            $('#mobile-number').val('');
+           // $('#mobile-number').focus();
+        }
+    });
+});
+</script>
+<!-- <script>
+  $(document).ready(function(){
+    var generated = [];
+    function generateCodes(number, length) {
+    for ( var i=0; i < number; i++ ) {
+      generateCode(length);
+    }
+  //$("textarea").val(generated.join("\n"));
+  //$(".generator").addClass("generated");
+  var referal = "INVENTO"+generated;
+    console.log(referal);
+  }
+  function generateCode(length) {
+    var text = "";
+
+    for ( var i=0; i < length; i++ ) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    if ( generated.indexOf(text) == -1 ) {
+      generated.push(text);
+    }else {
+      generateCode();
+    }
+  }
+  $(".generate").on("click", function(e) {
+    var num = 1,
+      len = 5;
+
+    possible  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    generateCodes(num, len);
+    return false;
+});
+});
+</script> -->
 <div class="page-content">
     <div class="form-v9-content" style="background-image: url({% static 'invento19/images/form-v9.jpg' %});">
-        <form class="form-detail" action="/event-register/" method="post">{% csrf_token %}
+        <form id="event_register_form" class="form-detail" action="" method="post">{% csrf_token %}
             <h2 style="color: #fff;">Registration Form</h2>
              <div class="form-row-total">
                 <div class="form-row">
@@ -69,6 +164,7 @@
               </div> -->
           </div>
             <div class="form-row-last">
+              <!-- <input type="button" value="Generate" class="generate"> -->
                 <input type="submit" name="register" class="register" value="Register">
             </div>
         </form>

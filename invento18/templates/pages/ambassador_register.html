@@ -1,0 +1,86 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+<script>
+  $(document).ready(function(){
+    var generated = [];
+    function generateCodes(number, length) {
+    for ( var i=0; i < number; i++ ) {
+      generateCode(length);
+    }
+  //$("textarea").val(generated.join("\n"));
+  //$(".generator").addClass("generated");
+  var referal = "INVENTO"+generated;
+    //console.log(referal);
+    $("#referalcode").val(referal);
+  }
+  function generateCode(length) {
+    var text = "";
+
+    for ( var i=0; i < length; i++ ) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    if ( generated.indexOf(text) == -1 ) {
+      generated.push(text);
+    }else {
+      generateCode();
+    }
+  }
+  $(window).on("load", function(e) {
+    var num = 1,
+      len = 5;
+
+    possible  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    generateCodes(num, len);
+    return false;
+});
+});
+</script>
+<div class="page-content">
+    <div class="form-v9-content" style="background-image: url({% static 'invento19/images/form-v9.jpg' %});">
+      <form class="form-detail" action="/ambassador-register/" method="post">{% csrf_token %}
+      <h2 style="color: #fff;">Registration Form</h2>
+      <div class="form-row-total">
+        <div class="form-row">
+          <input type="text" name="first-name" id="first-name" class="input-text" placeholder="First Name" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="last-name" id="last-name" class="input-text" placeholder="Last Name" required>
+        </div>
+      </div>
+      <div class="form-row-total">
+        <div class="form-row">
+          <input type="text" name="email" id="email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+        </div>
+        <div class="form-row">
+          <input type="number" name="mobile-number" id="mobile-number" class="input-text" placeholder="Mobile Number" required>
+        </div>
+      </div>
+              <div class="form-row-total">
+        <div class="form-row">
+          <input type="text" name="college" id="college" class="input-text" placeholder="Your College" required>
+        </div>
+        <div class="form-row">
+          <input type="text" name="department" id="department" class="input-text" placeholder=" Your Department" required>
+        </div>
+      </div>
+      <div class="form-row-total">
+        <div class="form-row">
+          <input type="text" name="referalcode" id="referalcode" class="input-text" placeholder="Referal Code" hidden>
+        </div>
+        <!-- <div class="form-row">
+          <input type="text" name="text" id="department" class="input-text" placeholder=" Your Department" required>
+        </div> -->
+      </div>
+      <div class="form-row-last">
+        <input type="submit" name="register" class="register" value="Register">
+      </div>
+    </form>
+    </div>
+</div>
+
+{% endblock %}

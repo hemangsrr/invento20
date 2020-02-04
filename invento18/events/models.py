@@ -55,3 +55,14 @@ class Event_register(models.Model):
     phone = models.CharField(max_length=20)
     referal_code = models.CharField(max_length=50)
     event = models.CharField(max_length=50)
+
+
+class Ambassador_register(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email =  models.EmailField(max_length=254)
+    phone = models.CharField(max_length=20)
+    college = models.CharField(max_length=250)
+    department = models.CharField(max_length=250)
+    referal_code = models.CharField(max_length=50)
+

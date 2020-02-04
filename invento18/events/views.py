@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView
 from django.views.generic.base import ContextMixin
-from .models import Event, Event_register
+from .models import Event, Event_register, Ambassador_register
 from .forms import EventRegisterForm
 class EventDetailView(DetailView):
     model = Event
@@ -51,20 +51,43 @@ def event_register_view(request):
     #     form.save()
     #     return redirect('home')
     if request.method == 'POST':
-        first_name = request.POST["first-name"]
-        last_name = request.POST["last-name"]
+        first_name = request.POST["first_name"]
+        last_name = request.POST["last_name"]
         email = request.POST["email"]
-        mobile = request.POST["mobile-number"]
+        mobile = request.POST["phone"]
         referal_code = request.POST["referal_code"]
-        event = request.POST["events"]
+        event = request.POST["event"]
 
         event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
         event_register.save()
         return redirect('home')
     else:
-        events = Event.objects.all()
+        events = Event.objects.all().order_by('title')
         return render(request, 'pages/event_register.html', {'events': events})
 
 def event_register(request):
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('title')
     return render(request, 'pages/event_register.html', {'events': events})
+
+def ambassador_register_view(request):
+    # form = EventRegisterForm(request.POST or None)
+    # if form.is_valid():
+    #     form.save()
+    #     return redirect('home')
+    if request.method == 'POST':
+        first_name = request.POST["first-name"]
+        last_name = request.POST["last-name"]
+        email = request.POST["email"]
+        mobile = request.POST["mobile-number"]
+        college = request.POST["college"]
+        department = request.POST["department"]
+        referal_code = request.POST["referalcode"]
+
+        ambassador_register = Ambassador_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, college=college, department=department, referal_code=referal_code)
+        ambassador_register.save()
+        return redirect('home')
+    else:
+        return render(request, 'pages/ambassador_register.html')
+
+def campus_ambassador(request):
+    return render(request, 'pages/ambassador_register.html')
