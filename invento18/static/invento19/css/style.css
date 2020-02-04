@@ -1371,14 +1371,14 @@ td, th {
 }
 @media only screen and (max-width: 600px) {
   .overlay-banner {
-  height: 60vh;
-}
-}
-@media only screen and (max-width: 440px) {
-  .overlay-banner {
   height: 40vh;
 }
 }
+/* @media only screen and (max-width: 440px) {
+  .overlay-banner {
+  height: 40vh;
+}
+} */
 .container.fullwidth {
   width: 100%;
 }
