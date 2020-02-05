@@ -24,8 +24,8 @@ class Event(models.Model):
     long_desc = models.TextField(max_length=2000,default="something long")
     category = models.CharField(max_length=3, default='gen', choices=category_types)
     _type = models.CharField(max_length=3, default='wor', choices=type_types, verbose_name="Type")
-    fee = models.PositiveIntegerField()# Set zero for free events
-    prize = models.PositiveIntegerField()
+    fee = models.FloatField()# Set zero for free events
+    prize = models.FloatField()
     coordinators = models.TextField(max_length=500)
     day = models.PositiveIntegerField()
     imageurl = models.URLField(blank=True)
@@ -65,4 +65,3 @@ class Ambassador_register(models.Model):
     college = models.CharField(max_length=250)
     department = models.CharField(max_length=250)
     referal_code = models.CharField(max_length=50)
-
