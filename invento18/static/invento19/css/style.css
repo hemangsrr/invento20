@@ -516,12 +516,24 @@ input[type="radio"]:checked + label:before {
 }
 
 .prod-holder {
-      background: #e52828;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       box-shadow: 6px 8px 19px 1px #000000;
 }
-
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 .prod-holder img {
       border-radius: 5px;
 }
