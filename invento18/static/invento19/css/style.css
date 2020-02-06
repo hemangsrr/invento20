@@ -11,7 +11,7 @@ html, body {
       font-family: "Overpass";
       font-weight: lighter;
       color: #000 !important;
-      background: #fff !important;
+      background: rgb(102, 101, 101) !important;
 }
 .container-fluid {
   padding-right: 0px;
@@ -26,6 +26,7 @@ html, body {
     bottom: 0;
 
 }
+
 /* NAVIGATION BAR */
 
 .nav {
@@ -158,10 +159,16 @@ html, body {
   .hero-section {
     height: 80vh;
 }
+#particles-js{
+  height: 80vh;
+}
 }
 @media only screen and (max-width: 600px) {
     .hero-section {
       height: 40vh;
+  }
+  #particles-js{
+    height: 40vh;
   }
 }
 /* @media only screen and (max-width: 440px) {
