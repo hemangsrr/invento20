@@ -4914,6 +4914,7 @@ dl.accordion.time-line:before {
     padding: 14.5px 0px 14.5px 30px;
     border: 2px solid #ccc;
     appearance: unset;
+    text-transform: none !important;
     -moz-appearance: unset;
     -webkit-appearance: unset;
     -o-appearance: unset;
