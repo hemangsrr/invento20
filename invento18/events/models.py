@@ -36,6 +36,10 @@ class Event(models.Model):
     def admin_image(self):
         return self.imageurl
     admin_image.allow_tags = True
+    
+    def admin_poster(self):
+        return self.posterurl
+    admin_poster.allow_tags = True
 
     def __str__(self):
         return self.title
