@@ -7,7 +7,7 @@ from .forms import EventRegisterForm,AmbassadorForm, Loginform
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 ref_code = 'INV2092'
-current_user_referral = 100000
+current_user_referral = ''
 
 def ambassador_register_view(request):
     form = AmbassadorForm(request.POST)
