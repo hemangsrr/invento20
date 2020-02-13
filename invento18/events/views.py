@@ -39,8 +39,6 @@ def ambassador_login_view(request):
         user_email = request.POST.get('email')
         user_referal_code = request.POST.get('referal_code')
         for i in Ambassador.objects.all():
-            print(i.referal_code)
-            print(i.email)
             if i.referal_code==user_referal_code and i.email==user_email:
                 current_user_referral = user_referal_code
                 return render(request, 'pages/register_ambassador.html', {'form': form} )
@@ -108,10 +106,11 @@ def event_register_view(request):
         event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
         event_register.save()
 
-        for i in Ambassador.objects.all():
-            if i.referal_code==referal_code:
-                i.points +=1
-                i.save()
+
+        ambassador = Ambassador.objects.filter(referal_code = referal_code)
+        event = Event.objects.filter(title = event)
+        ambassador.points = event.fee / 10
+        ambassador.save()
 
         return redirect('home')
     else:
