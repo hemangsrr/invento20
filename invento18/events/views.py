@@ -109,7 +109,7 @@ def event_register_view(request):
         event_register.save()
 
         for i in Ambassador.objects.all():
-            if i.referal_code==int(referal_code):
+            if i.referal_code==referal_code:
                 i.points +=1
                 i.save()
 
