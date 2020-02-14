@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Event_register, Ambassador_register
+from .models import Event, Event_register, Ambassador
 # Register your models here.
 
 @admin.register(Event)
@@ -12,6 +12,6 @@ class Event_registerAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'email', 'referal_code','event')
     list_filter = ('referal_code', 'event')
 
-@admin.register(Ambassador_register)
+@admin.register(Ambassador)
 class Ambassador_registerAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'phone','college','department', 'referal_code')
