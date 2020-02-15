@@ -7,112 +7,106 @@
             <div class="whitespaces"></div>
 
             <!-- COLLECTION STARTS -->
-			{% if workshops %}
-            <div class="collection">
-                  <p id="heading">Workshops</p>
+            {% if workshops %}
+                  <div class="collection">
+                        <p id="heading">Workshops</p>
 
-                  <div class="section prod-list">
-                        <div class="container-fluid">
-                              <div class="row some-cards">
-									{% for workshop in workshops %}
-                                    <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
-                                          <div class="prod-holder">
-                                          <a href="/events/{{ workshop.pk }}">
-                                                <img src="{% static 'invento19/images/prod-04.jpg' %}" alt="">
-                                                <p id="price"> {{ workshop.title }} </p>
-                                                <p id="prod-desc"> {{ workshop.description | linebreaksbr }} </p>
-                                          </a>
-                                          </div>
-						</div>
-									{% endfor %}
-                              </div>
-                        </div>
-                  </div>
-            </div>
-			{% endif %}
-
-			{% if shows %}
-            <div class="collection">
-                  <p id="heading">Shows</p>
-
-                  <div class="section prod-list">
-                        <div class="container-fluid">
-                              <div class="row some-cards">
-									{% for show in shows %}
-                                    <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="section prod-list">
+                              <div class="container-fluid">
+                                    <div class="row some-cards">
+      									{% for workshop in workshops %}
+                                          <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
                                                 <div class="prod-holder">
-                                                <a href="/events/{{ show.pk }}">
-                                                      <img src="{% static 'invento19/images/prod-04.jpg' %}" alt="">
-                                                      <p id="price"> {{ show.title }} </p>
-                                                      <p id="prod-desc"> {{ show.description | linebreaksbr }} </p>
+                                                <a href="/events/{{ workshop.pk }}">
+                                                      <img src="{{ workshop.imageurl }}" alt="">
+                                                      <p id="price"> {{ workshop.title }} </p>
+                                                      <p id="prod-desc"> {{ workshop.short_desc | linebreaksbr }} </p>
                                                 </a>
                                                 </div>
+      						</div>
+      									{% endfor %}
                                     </div>
-									{% endfor %}
                               </div>
                         </div>
                   </div>
-            </div>
-			{% endif %}
+      			{% endif %}
 
-			{% if competitions %}
-            <div class="collection">
-                  <p id="heading">Competitions</p>
+      			{% if shows %}
+                  <div class="collection">
+                        <p id="heading">Shows</p>
 
-                  <div class="section prod-list">
-                        <div class="container-fluid">
-                              <div class="row some-cards">
-									{% for competition in competitions %}
-                                    <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
-                                          <div class="prod-holder">
-                                          <a href="/events/{{ competition.pk }}">
-                                                <img src="{% static 'invento19/images/prod-04.jpg' %}" alt="">
-                                                <p id="price"> {{ competition.title }} </p>
-                                                <p id="prod-desc"> {{ competition.description | linebreaksbr }} </p>
-                                          </a>
+                        <div class="section prod-list">
+                              <div class="container-fluid">
+                                    <div class="row some-cards">
+      									{% for show in shows %}
+                                          <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
+                                                      <div class="prod-holder">
+                                                      <a href="/events/{{ show.pk }}">
+                                                            <img src="{{ show.imageurl }}" alt="">
+                                                            <p id="price"> {{ show.title }} </p>
+                                                            <p id="prod-desc"> {{ show.short_desc | linebreaksbr }} </p>
+                                                      </a>
+                                                      </div>
                                           </div>
-						</div>
-									{% endfor %}
+      									{% endfor %}
+                                    </div>
                               </div>
                         </div>
                   </div>
-            </div>
-			{% endif %}
+      			{% endif %}
 
-			{% if talks %}
-            <div class="collection">
-                  <p id="heading">Talks</p>
+      			{% if competitions %}
+                  <div class="collection">
+                        <p id="heading">Competitions</p>
 
-                  <div class="section prod-list">
-                        <div class="container-fluid">
-                              <div class="row some-cards">
-									{% for talk in talks %}
-                                    <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
-                                          <div class="prod-holder">
-                                          <a href="/events/{{ talk.pk }}">
-                                                <img src="{% static 'invento19/images/prod-04.jpg' %}" alt="">
-                                                <p id="price"> {{ talk.title }} </p>
-                                                <p id="prod-desc"> {{ talk.description | linebreaksbr }} </p>
-                                          </a>
-                                          </div>
-									</div>
-									{% endfor %}
+                        <div class="section prod-list">
+                              <div class="container-fluid">
+                                    <div class="row some-cards">
+      									{% for competition in competitions %}
+                                          <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
+                                                <div class="prod-holder">
+                                                <a href="/events/{{ competition.pk }}">
+                                                      <img src="{{ competition.imageurl }}" alt="">
+                                                      <p id="price"> {{ competition.title }} </p>
+                                                      <p id="prod-desc"> {{ competition.short_desc | linebreaksbr }} </p>
+                                                </a>
+                                                </div>
+      						</div>
+      									{% endfor %}
+                                    </div>
                               </div>
                         </div>
                   </div>
-            </div>
-			{% endif %}
+      			{% endif %}
 
-            <!-- COLLECTION ENDS -->
+      			{% if talks %}
+                  <div class="collection">
+                        <p id="heading">Talks</p>
 
-            <center><img class="image img-fluid" src="{% static 'invento19/images/coming-soon.jpg' %}" alt=""></center>
-            <br>
-            <center><h2> Register as a Campus Ambassador Now <h2></center>
-            <center><a href="caportal" class="primary-btn text-uppercase">Know More</a></center>
+                        <div class="section prod-list">
+                              <div class="container-fluid">
+                                    <div class="row some-cards">
+      									{% for talk in talks %}
+                                          <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
+                                                <div class="prod-holder">
+                                                <a href="/events/{{ talk.pk }}">
+                                                      <img src="{{ talk.imageurl }}" alt="">
+                                                      <p id="price"> {{ talk.title }} </p>
+                                                      <p id="prod-desc"> {{ talk.short_desc | linebreaksbr }} </p>
+                                                </a>
+                                                </div>
+      									</div>
+      									{% endfor %}
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+      			{% endif %}
+
+                  <!-- COLLECTION ENDS -->
 
 
+                  <div class="whitespaces"></div>
+                  {% endblock %}
 
-            <div class="whitespaces"></div>
-            {% endblock %}
-
-            <!-- FOOTER STARTS -->
+                  <!-- FOOTER STARTS -->
