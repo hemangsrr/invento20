@@ -3,7 +3,7 @@ from django.views.generic import DetailView
 from django.views.generic.base import ContextMixin
 from .models import Event, Event_register, Ambassador
 from .forms import EventRegisterForm,AmbassadorForm, Loginform
-
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 ref_code = 'INV2092'
@@ -33,7 +33,7 @@ def ambassador_register_view(request):
     return render(request, 'pages/register_ambassador.html', {'form': form})
 
 def ambassador_login_view(request):
-    
+
     global current_user_referral
     form = Loginform(request.POST)
 
@@ -42,16 +42,16 @@ def ambassador_login_view(request):
         user_referal_code = request.POST.get('referal_code')
 
         try:
-            a = Ambassador.objects.get(referal_code = user_referal_code)
+            a = Ambassador.objects.get(referal_code = user_referal_code, email = user_email)
             current_user_referral = user_referal_code
             points = a.points
             return render(request, 'pages/points.html', {'points': points} )
         except:
-            return render(request, 'pages/register_ambassador.html', {'form': form} )
+            messages.error(request, "Incorrect Email or Referal Code.")
+            return render(request, 'pages/login_ambassador.html')
     else:
-        form = AmbassadorForm()
-
-    return render(request, 'pages/login_ambassador.html', {'form': form})
+        # form = AmbassadorForm()
+        return render(request, 'pages/login_ambassador.html')
 
 class EventDetailView(DetailView):
     model = Event

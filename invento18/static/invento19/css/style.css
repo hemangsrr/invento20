@@ -5132,10 +5132,55 @@ input:-moz-placeholder { /* Firefox 18- */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-@media only screen and (max-width: 600px) {
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 400px) {
+  .flip-box-front,
+.flip-box-back {
+  min-height: 410px;
+
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 400px) {
   .flip-box-front,
 .flip-box-back {
   min-height: 490px;
+
+}
+}
+@media only screen and (min-width: 500px) {
+  .flip-box-front,
+.flip-box-back {
+  min-height: 600px;
+
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .flip-box-front,
+.flip-box-back {
+  min-height: 600px;
+
+}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .flip-box-front,
+.flip-box-back {
+  min-height: 315px;
+
+}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .flip-box-front,
+.flip-box-back {
+  min-height: 440px;
 
 }
 }
@@ -5290,3 +5335,24 @@ input:-moz-placeholder { /* Firefox 18- */
   width: 12px;
 }
 
+/* Dropdown */
+.dropdown-menu {
+  left: 110px !important;
+  top: 150px !important;
+  background-color: #000 !important;
+}
+@media only screen and (max-width: 600px) {
+  .dropdown-menu {
+    left: 50px !important;
+    top: 160px !important;
+  }
+}
+.dropdown-item {
+  padding-bottom: 20px !important
+}
+.dropdown-item:hover{
+  background-color: transparent !important;
+}
+.dropdown-item:active{
+  background-color: transparent !important;
+}
