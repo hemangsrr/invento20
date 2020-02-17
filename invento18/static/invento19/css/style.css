@@ -5337,6 +5337,7 @@ input:-moz-placeholder { /* Firefox 18- */
 
 /* Dropdown */
 .dropdown-menu {
+  top: 0px !important;
   left: 110px !important;
   top: 150px !important;
   background-color: #000 !important;
@@ -5351,7 +5352,8 @@ input:-moz-placeholder { /* Firefox 18- */
   padding-bottom: 20px !important
 }
 .dropdown-item:hover{
-  background-color: transparent !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
 .dropdown-item:active{
   background-color: transparent !important;
