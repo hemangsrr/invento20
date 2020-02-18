@@ -5132,11 +5132,22 @@ input:-moz-placeholder { /* Firefox 18- */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
+.flip-box-blur {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  min-height: 440px;
+  -ms-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  -webkit-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 400px) {
   .flip-box-front,
-.flip-box-back {
+.flip-box-back,
+.flip-box-blur {
   min-height: 410px;
 
 }
@@ -5145,14 +5156,16 @@ input:-moz-placeholder { /* Firefox 18- */
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 400px) {
   .flip-box-front,
-.flip-box-back {
+.flip-box-back,
+.flip-box-blur {
   min-height: 490px;
 
 }
 }
 @media only screen and (min-width: 500px) {
   .flip-box-front,
-.flip-box-back {
+.flip-box-back,
+.flip-box-blur {
   min-height: 600px;
 
 }
@@ -5161,7 +5174,8 @@ input:-moz-placeholder { /* Firefox 18- */
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .flip-box-front,
-.flip-box-back {
+.flip-box-back,
+.flip-box-blur {
   min-height: 600px;
 
 }
@@ -5170,7 +5184,8 @@ input:-moz-placeholder { /* Firefox 18- */
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .flip-box-front,
-.flip-box-back {
+.flip-box-back,
+.flip-box-blur {
   min-height: 315px;
 
 }
@@ -5179,7 +5194,8 @@ input:-moz-placeholder { /* Firefox 18- */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .flip-box-front,
-.flip-box-back {
+.flip-box-back,
+.flip-box-blur {
   min-height: 440px;
 
 }
