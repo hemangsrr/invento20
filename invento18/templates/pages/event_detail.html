@@ -26,6 +26,27 @@
                 });
             }
         </script>
+        <script>
+          //URL Value access
+          $(document).ready(function(){
+            //<!-- $('select>option:eq(1)').attr('selected', true); -->
+            //<!-- $('#events').val(decodeURIComponent($.urlParam('event'))); -->
+            //<!-- var str = jQuery.param( params ); -->
+
+            //<!-- console.log($.urlParam('event')); -->
+             //<!-- console.log(GetParameterValues('event').replace(/%20/g,' ')); -->
+          $('#referal').val(GetParameterValues('ref'));
+            function GetParameterValues(param) {
+              var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+              for (var i = 0; i < url.length; i++) {
+                  var urlparam = url[i].split('=');
+                  if (urlparam[0] == param) {
+                      return urlparam[1];
+                  }
+              }
+          }
+          });
+        </script>
   <script>
     $(document).ready(function(){
       $("#share").click(function(){
@@ -52,10 +73,16 @@
         showCancelButton: true
     }).then((result) => {
         if (result.value) {
-          var url = "https://www.invento2020.com/events/"+"?event={{event.title}}&" + "ref="+result.value;
+          //var url = "https://www.invento2020.com/events/"+"?event={{event.title}}&" + "ref="+result.value;
+          var url = window.location.href + "?ref="+result.value;
           alert(url);
         }
     });
+    });
+    $("#register").on("click", function(e){
+      e.preventDefault();
+      var ref = $('#referal').val();
+      window.location = "/events/?event={{event.title}}&ref="+ref;
     });
   });
   </script>
@@ -102,8 +129,9 @@
                                           {% elif event.title == "Selfeyaan" or event.title == "Weapon Expo" %}
                                           <button type="button" name="button" style="display : none;">Register</button>
                                           {% else %}
-                                          <a class="btn btn-info" href="/events/?event={{event.title}}">Register Now</a>
+                                          <a id="register" class="btn btn-info" href="/events/?event={{event.title}}&ref=referal.value">Register Now</a>
                                           <button id="share" class="btn btn-info">Share</button>
+                                          <input type="text" name="referal" id="referal" hidden>
                                           {% endif %}
                                     </div>
                               </div>
