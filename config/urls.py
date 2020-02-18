@@ -25,10 +25,10 @@ urlpatterns = [
     url(r'^event-register/$', event_register_view, name='event-register'),
     url(r'^campus-ambassador/$', campus_ambassador, name='cambus-ambassador'),
     url(r'^ambassador-register/$', ambassador_register_view, name='ambassador-register'),
-    url(r'^ambassador-login/$', ambassador_login_view, name='ambassador-register'),
+    url(r'^ambassador-login/$', ambassador_login_view, name='ambassador-login'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^leaderboard/$', leaderboard, name='leaderboard'),
-    url(r'^logout/$', logout, name='logout'),
+    #url(r'^logout/$', logout, name='logout'),
 
     url(r'api/v1/events/(?P<category>[\w]{1,3})/(?P<_type>[\w]{0,3})', EventList.as_view()),
     url(r'^general/$', departmentview, name='general'),
