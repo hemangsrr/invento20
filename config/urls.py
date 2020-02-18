@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'developers/$', TemplateView.as_view(template_name='pages/developers.html'), name='developers'),
     url(r'^events/$', event_register, name='events'),
     url(r'^event-register/$', event_register_view, name='event-register'),
-    url(r'^campus-ambassador/$', campus_ambassador, name='campus-ambassador'),
+    url(r'^campus-ambassador/$', campus_ambassador, name='cambus-ambassador'),
     url(r'^ambassador-register/$', ambassador_register_view, name='ambassador-register'),
     url(r'^ambassador-login/$', ambassador_login_view, name='ambassador-register'),
     url(r'^profile/$', profile, name='profile'),
