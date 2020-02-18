@@ -21,13 +21,20 @@ def ambassador_register_view(request):
         a.phone = request.POST.get('phone')
         a.college = request.POST.get('college')
         a.department = request.POST.get('department')
-        ref=int(ref_code[3:])
-        ref +=1
-        a.referal_code = 'INV'+str(ref)
-        ref_code = 'INV'+str(ref)
-        a.points = 0
-        a.save()
-        return redirect('/ambassador-login')
+        print(Ambassador.objects.filter(email=a.email).count())
+
+        if Ambassador.objects.filter(email=a.email).count()==0:
+            ref=int(ref_code[3:])
+            ref +=1
+            a.referal_code = 'INV'+str(ref)
+            ref_code = 'INV'+str(ref)
+            a.points = 0
+            a.save()
+            return redirect('/ambassador-login')
+        else:
+            message = "Email already registered!!"
+            return render(request, 'pages/ambassador_register.html', {'form': form,
+                                                                            'message':message})
 
     else:
         form = AmbassadorForm()
@@ -46,7 +53,6 @@ def ambassador_login_view(request):
             return redirect('/leaderboard')
         except:
             message = 'INVALID LOGIN!'
-            #return redirect('/')
             return render(request, 'pages/login_ambassador.html', {'form': form,
                                                                        'message':message} )
     else:
@@ -64,21 +70,21 @@ def profile(request):
         return render(request, 'pages/login_ambassador.html', {})
 
 def leaderboard(request):
-
-
     if request.session.has_key('referal_code'):
         ref_code = request.session['referal_code']
         current_ambassador = Ambassador.objects.get(referal_code=ref_code)
-        Ambassadors = Ambassador.objects.all().order_by('-points').exclude(pk='INV2102')
+        Ambassadors = Ambassador.objects.all().order_by('-points').exclude(pk='INV2020')
         return render(request, 'pages/points.html', {"ambassadors":Ambassadors,
                                                 "current_ambassador":current_ambassador})
 
 def logout(request):
     try:
         del request.session['referal_code']
+        print("\n\n\nlogged out\n\n\n")
+        return redirect('/')
     except:
         pass
-    return render(request, 'pages/login_ambassador.html', {})
+    return redirect('/')
 
 class EventDetailView(DetailView):
     model = Event

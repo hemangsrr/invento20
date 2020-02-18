@@ -138,6 +138,12 @@ $(document).on('submit','#ambassador_register_form', function(e) {
           <input type="text" name="text" id="department" class="input-text" placeholder=" Your Department" required>
         </div>
       </div> -->
+      <div >
+         {% if message %}
+              {{ message }}
+         {% endif %}
+       </div>
+
       <div class="form-row-last">
         <input type="submit" name="register" class="register" value="Register">
       </div>
