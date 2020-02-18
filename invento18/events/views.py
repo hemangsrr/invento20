@@ -10,12 +10,13 @@ from django.shortcuts import render
 ref_code = 'INV2092'
 current_user_referral = ''
 
-from django.contrib.auth.models import User
+
 
 
 def ambassador_register_view(request):
+    last_registration = Ambassador.objects.latest('referal_code')
+    ref_code = last_registration.referal_code
     form = AmbassadorForm(request.POST)
-    global ref_code
     if request.method == 'POST':
         a = Ambassador()
         a.first_name = request.POST.get('first_name')
@@ -24,15 +25,29 @@ def ambassador_register_view(request):
         a.phone = request.POST.get('phone')
         a.college = request.POST.get('college')
         a.department = request.POST.get('department')
-        ref=int(ref_code[3:])
-        ref +=1
-        a.referal_code = 'INV'+str(ref)
-        ref_code = 'INV'+str(ref)
-        a.points = 0
-        a.save()
+        print(Ambassador.objects.filter(email=a.email).count())
 
-        return redirect('/ambassador-login')
+        if Ambassador.objects.filter(email=a.email).count()==0:
+            ref=int(ref_code[3:])
+            ref +=1
+            a.referal_code = 'INV'+str(ref)
+            ref_code = 'INV'+str(ref)
+            a.points = 0
+            a.save()
+            return redirect('/ambassador-login')
+        else:
+            message = "Email already registered!!"
+            return render(request, 'pages/ambassador_register.html', {'form': form, 'message':message})
+       # ref=int(ref_code[3:])
+       # ref +=1
+       # a.referal_code = 'INV'+str(ref)
+       # ref_code = 'INV'+str(ref)
+        #a.points = 0
+        #a.save()
+
+        #return redirect('/ambassador-login')
         #return render(request, 'pages/login_ambassador.html')
+
 
     else:
         form = AmbassadorForm()
@@ -40,8 +55,6 @@ def ambassador_register_view(request):
     return render(request, 'pages/ambassador_register.html', {'form': form})
 
 def ambassador_login_view(request):
-
-#    global current_user_referral
     form = Loginform(request.POST)
     if request.method == 'POST':
         try:
@@ -49,7 +62,8 @@ def ambassador_login_view(request):
             post_referal_code = request.POST.get('referal_code')
             current_ambassador = Ambassador.objects.get(pk=post_referal_code, email=post_email)
             request.session['referal_code'] = current_ambassador.referal_code
-            return redirect('/profile')
+
+            return redirect('/leaderboard')
         except:
             messages.error(request, "Incorrect Email or Referal Code.")
             return render(request, 'pages/login_ambassador.html')
@@ -74,15 +88,19 @@ def profile(request):
 def leaderboard(request):
     if request.session.has_key('referal_code'):
         ref_code = request.session['referal_code']
-        Ambassadors = Ambassador.objects.all()
-        return render(request, 'pages/profile.html', {"ambassadors":Ambassadors})
+        current_ambassador = Ambassador.objects.get(referal_code=ref_code)
+        Ambassadors = Ambassador.objects.all().order_by('-points').exclude(pk='INV2020')
+        return render(request, 'pages/points.html', {"ambassadors":Ambassadors,
+                                                "current_ambassador":current_ambassador})
 
 def logout(request):
     try:
         del request.session['referal_code']
+        print("\n\n\nlogged out\n\n\n")
+        return redirect('/')
     except:
-     pass
-    return render(request, 'pages/login_ambassador.html', {})
+        pass
+    return redirect('/')
 
 
 class EventDetailView(DetailView):
@@ -131,12 +149,12 @@ def event_register_view(request):
 
     if request.method == 'POST':
         first_name = request.POST["first_name"]
-        last_name = request.POST["last_name"]
+        college = request.POST["college"]
         email = request.POST["email"]
         mobile = request.POST["phone"]
         referal_code = request.POST["referal_code"]
         event = request.POST["event"]
-        event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
+        event_register = Event_register(first_name=first_name, college=college, email=email, phone=mobile, referal_code=referal_code, event=event)
         event_register.save()
 
 
