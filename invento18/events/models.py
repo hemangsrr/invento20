@@ -36,7 +36,7 @@ class Event(models.Model):
     def admin_image(self):
         return self.imageurl
     admin_image.allow_tags = True
-    
+
     def admin_poster(self):
         return self.posterurl
     admin_poster.allow_tags = True
@@ -54,7 +54,7 @@ class Event(models.Model):
 class Event_register(models.Model):
 
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    college = models.CharField(max_length=50)
     email =  models.EmailField(max_length=254)
     phone = models.CharField(max_length=20)
     referal_code = models.CharField(max_length=50)

@@ -7,7 +7,7 @@ class EventRegisterForm(forms.ModelForm):
             model = Event_register
             fields = [
                 'first_name',
-                'last_name',
+                'college',
                 'email',
                 'phone',
                 'referal_code'
