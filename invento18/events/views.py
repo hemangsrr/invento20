@@ -3,10 +3,12 @@ from django.views.generic import DetailView
 from django.views.generic.base import ContextMixin
 from .models import Event, Event_register, Ambassador
 from .forms import EventRegisterForm,AmbassadorForm, Loginform
-
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+
 ref_code = 'INV2092'
+current_user_referral = ''
 
 from django.contrib.auth.models import User
 
@@ -29,7 +31,6 @@ def ambassador_register_view(request):
         a.points = 0
         a.save()
 
-
         return redirect('/ambassador-login')
         #return render(request, 'pages/login_ambassador.html')
 
@@ -50,10 +51,12 @@ def ambassador_login_view(request):
             request.session['referal_code'] = current_ambassador.referal_code
             return redirect('/profile')
         except:
-            message = 'INVALID LOGIN!'
+            messages.error(request, "Incorrect Email or Referal Code.")
+            return render(request, 'pages/login_ambassador.html')
+            #message = 'INVALID LOGIN!'
             #return redirect('/')
-            return render(request, 'pages/login_ambassador.html', {'form': form,
-                                                                       'message':message} )
+            #return render(request, 'pages/login_ambassador.html', {'form': form,
+             #                                                          'message':message} )
     else:
         form = AmbassadorForm()
 
@@ -80,6 +83,7 @@ def logout(request):
     except:
      pass
     return render(request, 'pages/login_ambassador.html', {})
+
 
 class EventDetailView(DetailView):
     model = Event
@@ -124,10 +128,7 @@ def departmentview(request):
         })
 
 def event_register_view(request):
-    # form = EventRegisterForm(request.POST or None)
-    # if form.is_valid():
-    #     form.save()
-    #     return redirect('home')
+
     if request.method == 'POST':
         first_name = request.POST["first_name"]
         last_name = request.POST["last_name"]
