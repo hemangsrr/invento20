@@ -52,7 +52,7 @@
         showCancelButton: true
     }).then((result) => {
         if (result.value) {
-          var url = window.location.href + "ref=" +result.value;
+          var url = "https://www.invento2020.com/events/"+"?event={{event.title}}&" + "ref="+result.value;
           alert(url);
         }
     });
