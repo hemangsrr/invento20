@@ -10,6 +10,13 @@
             <!-- NAVIGATION ENDS -->
 
             <!-- PRODUCT STARTS HERE -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<style>
+  .swal2-styled {
+    padding: 0px 2em !important;
+}
+</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
             function call_counter(url, pk) {
@@ -19,6 +26,39 @@
                 });
             }
         </script>
+  <script>
+    $(document).ready(function(){
+      $("#share").click(function(){
+        /*Swal.fire({
+          title: 'Enter Your Referal Code',
+          input: 'text',
+          inputAttributes: {
+            autocapitalize: 'on'
+          },
+          showCancelButton: true,
+          confirmButtonText: 'Generate'
+        }).then((result) => {
+          if (result.value) {
+            var url = window.location.href;
+            console.log(url);
+      }
+      });*/
+      Swal.fire({
+        text: "Generate Link",
+        input: 'text',
+        inputAttributes: {
+          autocapitalize: 'on'
+        },
+        showCancelButton: true
+    }).then((result) => {
+        if (result.value) {
+          var url = window.location.href + "ref=" +result.value;
+          alert(url);
+        }
+    });
+    });
+  });
+  </script>
       <div id="about" class="home-about-area">
           <div class="product-container">
             <div class="container-fluid">
@@ -63,6 +103,7 @@
                                           <button type="button" name="button" style="display : none;">Register</button>
                                           {% else %}
                                           <a class="btn btn-info" href="/events/?event={{event.title}}">Register Now</a>
+                                          <button id="share" class="btn btn-info">Share</button>
                                           {% endif %}
                                     </div>
                               </div>
