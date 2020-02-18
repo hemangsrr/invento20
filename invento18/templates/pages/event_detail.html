@@ -75,7 +75,11 @@
         if (result.value) {
           //var url = "https://www.invento2020.com/events/"+"?event={{event.title}}&" + "ref="+result.value;
           var url = window.location.href + "?ref="+result.value;
-          alert(url);
+          //alert(url);
+          Swal.fire({
+            title : "Here is your sharable url",
+            text : url
+          })
         }
     });
     });
