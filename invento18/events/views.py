@@ -6,8 +6,12 @@ from .forms import EventRegisterForm,AmbassadorForm, Loginform
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+
 ref_code = 'INV2092'
 current_user_referral = ''
+
+from django.contrib.auth.models import User
+
 
 def ambassador_register_view(request):
     form = AmbassadorForm(request.POST)
@@ -26,32 +30,60 @@ def ambassador_register_view(request):
         ref_code = 'INV'+str(ref)
         a.points = 0
         a.save()
-        return render(request, 'pages/login_ambassador.html', {'form': form} )
+
+        return redirect('/ambassador-login')
+        #return render(request, 'pages/login_ambassador.html')
+
     else:
         form = AmbassadorForm()
 
-    return render(request, 'pages/register_ambassador.html', {'form': form})
+    return render(request, 'pages/ambassador_register.html', {'form': form})
 
 def ambassador_login_view(request):
 
-    global current_user_referral
+#    global current_user_referral
     form = Loginform(request.POST)
-
     if request.method == 'POST':
-        user_email = request.POST.get('email')
-        user_referal_code = request.POST.get('referal_code')
-
         try:
-            a = Ambassador.objects.get(referal_code = user_referal_code, email = user_email)
-            current_user_referral = user_referal_code
-            points = a.points
-            return render(request, 'pages/points.html', {'points': points} )
+            post_email = request.POST.get('email')
+            post_referal_code = request.POST.get('referal_code')
+            current_ambassador = Ambassador.objects.get(pk=post_referal_code, email=post_email)
+            request.session['referal_code'] = current_ambassador.referal_code
+            return redirect('/profile')
         except:
             messages.error(request, "Incorrect Email or Referal Code.")
             return render(request, 'pages/login_ambassador.html')
+            #message = 'INVALID LOGIN!'
+            #return redirect('/')
+            #return render(request, 'pages/login_ambassador.html', {'form': form,
+             #                                                          'message':message} )
     else:
-        # form = AmbassadorForm()
-        return render(request, 'pages/login_ambassador.html')
+        form = AmbassadorForm()
+
+    return render(request, 'pages/login_ambassador.html', {'form': form})
+
+
+def profile(request):
+    if request.session.has_key('referal_code'):
+        ref_code = request.session['referal_code']
+        current_ambassador = Ambassador.objects.get(referal_code=ref_code)
+        return render(request, 'pages/profile.html', {"current_ambassador":current_ambassador})
+    else:
+        return render(request, 'pages/login_ambassador.html', {})
+
+def leaderboard(request):
+    if request.session.has_key('referal_code'):
+        ref_code = request.session['referal_code']
+        Ambassadors = Ambassador.objects.all()
+        return render(request, 'pages/profile.html', {"ambassadors":Ambassadors})
+
+def logout(request):
+    try:
+        del request.session['referal_code']
+    except:
+     pass
+    return render(request, 'pages/login_ambassador.html', {})
+
 
 class EventDetailView(DetailView):
     model = Event
@@ -121,8 +153,6 @@ def event_register_view(request):
 def event_register(request):
     events = Event.objects.all().order_by('title')
     return render(request, 'pages/event_register.html', {'events': events})
-
-
 
 
 def campus_ambassador(request):
