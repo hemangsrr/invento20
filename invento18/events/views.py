@@ -131,12 +131,12 @@ def event_register_view(request):
 
     if request.method == 'POST':
         first_name = request.POST["first_name"]
-        last_name = request.POST["last_name"]
+        college = request.POST["college"]
         email = request.POST["email"]
         mobile = request.POST["phone"]
         referal_code = request.POST["referal_code"]
         event = request.POST["event"]
-        event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
+        event_register = Event_register(first_name=first_name, college=college, email=email, phone=mobile, referal_code=referal_code, event=event)
         event_register.save()
 
 
