@@ -30,6 +30,7 @@ class Event(models.Model):
     day = models.PositiveIntegerField()
     imageurl = models.URLField(blank=True)
     posterurl = models.URLField(blank=True)
+    linkurl = models.URLField(blank=True)
     townscript_code = models.CharField(max_length=50, blank=True)
     pdfurl = models.URLField(blank=True)
 

@@ -4,7 +4,7 @@ from .models import Event, Event_register, Ambassador
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', '_type', 'fee','imageurl','posterurl','short_desc','long_desc', 'prize', 'day')
+    list_display = ('title', 'category', '_type', 'fee', 'prize', 'day','short_desc')#,'long_desc','imageurl','posterurl')
     list_filter = ('category', '_type', 'fee', 'prize')
 
 @admin.register(Event_register)
