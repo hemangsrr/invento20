@@ -36,7 +36,9 @@ html, body {
     background-position: 50% 50%;
     background-repeat: no-repeat;
 } */
-
+.table{
+  background: #000000 !important;
+}
 /* NAVIGATION BAR */
 
 .nav {

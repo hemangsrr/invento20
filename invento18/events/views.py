@@ -86,12 +86,13 @@ def profile(request):
         return render(request, 'pages/login_ambassador.html', {})
 
 def leaderboard(request):
-    if request.session.has_key('referal_code'):
-        ref_code = request.session['referal_code']
-        current_ambassador = Ambassador.objects.get(referal_code=ref_code)
+    #if request.session.has_key('referal_code'):
+        #ref_code = request.session['referal_code']
+        #current_ambassador = Ambassador.objects.get(referal_code=ref_code)
         Ambassadors = Ambassador.objects.all().order_by('-points').exclude(pk='INV2020')
-        return render(request, 'pages/points.html', {"ambassadors":Ambassadors,"current_ambassador":current_ambassador})
-
+        return render(request, 'pages/points.html', {"ambassadors":Ambassadors})#{"ambassadors":Ambassadors,"current_ambassador":current_ambassador})
+    #else:
+        #return render(request, 'pages/points.html', {})
 def logout(request):
     try:
         del request.session['referal_code']

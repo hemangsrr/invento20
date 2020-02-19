@@ -1,6 +1,13 @@
 {% extends 'pages/base.html' %}
 {% load static %}
 {% block content %}
+<style media="screen">
+  table tr:hover td {
+   background-color: #ffffff !important;     
+   opacity: 1.0;
+}
+</style>
+<div style="background-color:#282828">
             <!-- NAVIGATION ENDS -->
             <title>LEADERBOARD</title>
 
@@ -8,27 +15,27 @@
 
             <!-- COLLECTION STARTS -->
 			{% if ambassadors %}
-            <div>
-                  <p>LEADERBOARD</p>
-
-                  <div>
-                        <div>
-                              <div>
-									{% for ambassador in ambassadors %}
-                                    <div>
-                                          <div>
-                                            <p> {{ ambassador.first_name  }} </p>
-                                            <p> {{ ambassador.last_name }} </p>
-                                            <p> {{ ambassador.college  }} </p>
-                                            <p> {{ ambassador.referal_code  }} </p>
-                                                <p> {{ ambassador.points | linebreaksbr }} </p>
-                                          </a>
-                                          </div>
-						</div>
-									{% endfor %}
-                              </div>
-                        </div>
-                  </div>
+            <div class="container">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr style="color:#ff0000">
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Referral Code</th>
+                    <th>Points</th>
+                  </tr>
+                </thead>
+                <tbody style="color:#ffffff">
+                  {% for ambassador in ambassadors %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ ambassador.first_name  }}  {{ ambassador.last_name }}</td>
+                    <td>{{ ambassador.referal_code  }}</td>
+                    <td>{{ ambassador.points }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
 			{% endif %}
 
@@ -48,3 +55,4 @@
             {% endblock %}
 
             <!-- FOOTER STARTS -->
+</div>
