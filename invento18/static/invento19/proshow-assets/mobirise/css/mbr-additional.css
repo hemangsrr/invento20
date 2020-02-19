@@ -519,6 +519,7 @@ a.text-black:focus {
 }
 .nav{
   left: 0px;
+  z-index: 9999;
 }
 a,
 a:hover {
@@ -816,8 +817,8 @@ section.lazy-placeholder:after {
   object-fit: fill;
 }
 .cid-rQXe2X7VEK .card_back {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 150%;
   padding: 30px 30px;
   color: #ffffff;
   background-color: #330066;
