@@ -798,6 +798,7 @@ section.lazy-placeholder:after {
   left: 0px;
   text-align: center;
   background-color: #eee;
+  align-self: center;
 }
 .cid-rQXe2X7VEK .card-front {
   z-index: 2;
