@@ -3,9 +3,13 @@ from django.views.generic import DetailView
 from django.views.generic.base import ContextMixin
 from .models import Event, Event_register, Ambassador
 from .forms import EventRegisterForm,AmbassadorForm, Loginform
-
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+
+ref_code = 'INV2092'
+current_user_referral = ''
+
 
 
 
@@ -33,8 +37,17 @@ def ambassador_register_view(request):
             return redirect('/ambassador-login')
         else:
             message = "Email already registered!!"
-            return render(request, 'pages/ambassador_register.html', {'form': form,
-                                                                            'message':message})
+            return render(request, 'pages/ambassador_register.html', {'form': form, 'message':message})
+       # ref=int(ref_code[3:])
+       # ref +=1
+       # a.referal_code = 'INV'+str(ref)
+       # ref_code = 'INV'+str(ref)
+        #a.points = 0
+        #a.save()
+
+        #return redirect('/ambassador-login')
+        #return render(request, 'pages/login_ambassador.html')
+
 
     else:
         form = AmbassadorForm()
@@ -52,9 +65,12 @@ def ambassador_login_view(request):
 
             return redirect('/leaderboard')
         except:
-            message = 'INVALID LOGIN!'
-            return render(request, 'pages/login_ambassador.html', {'form': form,
-                                                                       'message':message} )
+            messages.error(request, "Incorrect Email or Referal Code.")
+            return render(request, 'pages/login_ambassador.html')
+            #message = 'INVALID LOGIN!'
+            #return redirect('/')
+            #return render(request, 'pages/login_ambassador.html', {'form': form,
+             #                                                          'message':message} )
     else:
         form = AmbassadorForm()
 
@@ -74,8 +90,7 @@ def leaderboard(request):
         ref_code = request.session['referal_code']
         current_ambassador = Ambassador.objects.get(referal_code=ref_code)
         Ambassadors = Ambassador.objects.all().order_by('-points').exclude(pk='INV2020')
-        return render(request, 'pages/points.html', {"ambassadors":Ambassadors,
-                                                "current_ambassador":current_ambassador})
+        return render(request, 'pages/points.html', {"ambassadors":Ambassadors,"current_ambassador":current_ambassador})
 
 def logout(request):
     try:
@@ -85,6 +100,7 @@ def logout(request):
     except:
         pass
     return redirect('/')
+
 
 class EventDetailView(DetailView):
     model = Event
@@ -129,18 +145,15 @@ def departmentview(request):
         })
 
 def event_register_view(request):
-    # form = EventRegisterForm(request.POST or None)
-    # if form.is_valid():
-    #     form.save()
-    #     return redirect('home')
+
     if request.method == 'POST':
         first_name = request.POST["first_name"]
-        last_name = request.POST["last_name"]
+        college = request.POST["college"]
         email = request.POST["email"]
         mobile = request.POST["phone"]
         referal_code = request.POST["referal_code"]
         event = request.POST["event"]
-        event_register = Event_register(first_name=first_name, last_name=last_name, email=email, phone=mobile, referal_code=referal_code, event=event)
+        event_register = Event_register(first_name=first_name, college=college, email=email, phone=mobile, referal_code=referal_code, event=event)
         event_register.save()
 
 
