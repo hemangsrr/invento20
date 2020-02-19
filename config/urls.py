@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'share/$', TemplateView.as_view(template_name='pages/ambassador.html'), name='share'),
     url(r'caportal/$', TemplateView.as_view(template_name='pages/campus.html'), name='campus-ambassador'),
     url(r'developers/$', TemplateView.as_view(template_name='pages/developers.html'), name='developers'),
+    url(r'proshow/$', TemplateView.as_view(template_name='pages/proshow.html'), name='proshow'),
     url(r'^events/$', event_register, name='events'),
     url(r'^event-register/$', event_register_view, name='event-register'),
     url(r'^campus-ambassador/$', campus_ambassador, name='cambus-ambassador'),
