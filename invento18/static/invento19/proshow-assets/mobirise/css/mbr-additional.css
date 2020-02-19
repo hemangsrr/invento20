@@ -517,6 +517,9 @@ a.text-black:focus {
 .nav-tabs .nav-link {
   border-radius: 100px !important;
 }
+.nav{
+  left: 0px;
+}
 a,
 a:hover {
   color: #149dcc;
@@ -795,7 +798,7 @@ section.lazy-placeholder:after {
   backface-visibility: hidden;
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: -20px;
   text-align: center;
   background-color: #eee;
   align-self: center;
