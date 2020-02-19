@@ -8,20 +8,21 @@
 
             <!-- COLLECTION STARTS -->
 			{% if ambassadors %}
-            <div class="collection">
-                  <p id="heading">LEADERBOARD</p>
+            <div>
+                  <p>LEADERBOARD</p>
 
-                  <div class="section prod-list">
-                        <div class="container-fluid">
-                              <div class="row some-cards">
+                  <div>
+                        <div>
+                              <div>
 									{% for ambassador in ambassadors %}
-                                    <div class="col-lg-3 prod wow fadeInUp" data-wow-delay="0.5s">
-                                          <div class="prod-holder">
-                                            <p id="prod-desc"> {{ ambassador.first_name  }} </p>
-                                            <p id="prod-desc"> {{ ambassador.last_name }} </p>
-                                            <p id="prod-desc"> {{ ambassador.college  }} </p>
-                                            <p id="prod-desc"> {{ ambassador.referal_code  }} </p>
-                                            <p id="prod-desc"> {{ ambassador.points | linebreaksbr }} </p>
+                                    <div>
+                                          <div>
+                                            <p> {{ ambassador.first_name  }} </p>
+                                            <p> {{ ambassador.last_name }} </p>
+                                            <p> {{ ambassador.college  }} </p>
+                                            <p> {{ ambassador.referal_code  }} </p>
+                                                <p> {{ ambassador.points | linebreaksbr }} </p>
+                                          </a>
                                           </div>
 						</div>
 									{% endfor %}
@@ -31,8 +32,9 @@
             </div>
 			{% endif %}
 
-      <div class="container">
-      <h1>Profile Page </h1><!--<a href=="{% url '' %}">Logout</a>-->
+      <div>
+        <!--
+      <h1>Profile Page </h1>Logout
 
                 <h2>Welcome <span style="color: #F46404;">{{ current_ambassador.first_name}} </h2>
                  <p>Email id: {{ current_ambassador.email}} </p>
@@ -40,12 +42,8 @@
                  <p>College: {{ current_ambassador.college}} </p>
                  <p>Points: {{ current_ambassador.points}} </p>
 
-      </div>
-
-
+      </div> -->
             <!-- COLLECTION ENDS -->
-
-
             <div class="whitespaces"></div>
             {% endblock %}
 
