@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-ref_code = 'INV2092'
+ref_code = 'INV2098'
 current_user_referral = ''
 
 
