@@ -110,7 +110,8 @@
                                           <input type="radio" id="radio-input-1" checked>
                                           <label for="radio-input-1" class="input-helper input-helper--radio"> <span>Category</span> : {{event.get_category_display}}</label>  <br>
                                           <input type="radio" id="radio-input-1" checked>
-                                          <label for="radio-input-1" class="input-helper input-helper--radio"> <span>Day</span> : {% if event.day == 1 %} March 05 {% elif event.day == 2 %} March 06 {% elif event.day == 3 %} March 07 {% elif event.day == 4 %} March 08 {% endif %}</label>  <br>
+                                          <label for="radio-input-1" class="input-helper input-helper--radio">
+                                             <span>Day</span> : {% if event.day == "1" %} March 05 {% elif event.day == "2" %} March 06 {% elif event.day == "3' %} March 07 {% elif event.day == "4" %} March 08 {% elif event.day == "1,2" %} March 05,06 {% elif event.day == "2,3" %} March 06,07 {% elif event.day == "3,4" %} March 07,08 {% elif event.day == "1,2,3" %} March 05,06,07 {% elif event.day == "2,3,4" %} March 06,07,08 {% elif event.day == "1,2,3,4" %} March 05,06,07,08{% endif %}</label>  <br>
                                           <input type="radio" id="radio-input-1" checked>
                                           <label for="radio-input-1" class="input-helper input-helper--radio"> <span>Fee</span> : {{ event.fee }} </label>   <br>
                                           <input type="radio" id="radio-input-1" checked>
@@ -128,7 +129,7 @@
                                           <!--We have temporarily closed registrations while we fix an error on our database. Sorry for the inconvenience.-->
                                           {% if event.linkurl %}
                                           <a class="btn btn-info" href="{{event.linkurl}}">Register Now</a>
-                                          {% elif event.title == "Selfeyaan" or event.title == "Weapon Expo" or event.title == "Electrical Expo" %}
+                                          {% elif event.title == "Selfeyaan" or event.title == "Weapon Expo" or event.title == "Electrical Expo" or event.title == "Wheelies"% or event.title == "Dr Drive"}
                                           <button type="button" name="button" style="display : none;">Register</button>
                                           {% else %}
                                           <input type="text" name="referal" id="referal" hidden>

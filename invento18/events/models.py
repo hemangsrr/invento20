@@ -27,7 +27,7 @@ class Event(models.Model):
     fee = models.FloatField()# Set zero for free events
     prize = models.FloatField()
     coordinators = models.TextField(max_length=500)
-    day = models.PositiveIntegerField()
+    day = models.TextField()
     imageurl = models.URLField(blank=True)
     posterurl = models.URLField(blank=True)
     linkurl = models.URLField(blank=True)
