@@ -811,10 +811,11 @@ section.lazy-placeholder:after {
   height: 150%;
 }
 .cid-rQXe2X7VEK .card-front img {
-  height: 100%;
-  min-width: 100%;
   width: auto;
-  object-fit: fill;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+  
 }
 .cid-rQXe2X7VEK .card_back {
   width: auto;
