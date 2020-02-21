@@ -34,7 +34,15 @@
     alert("Your referalcode: " +ref);
   }
   </script>
+{% if ref %}
+
 <body onload="referal()">
+  
+  {% else %}
+  
+  <body>
+    
+    {% endif %}
   <section class="cid-rR2VI9veFS mbr-fullscreen mbr-parallax-background" id="header2-3">
 
 
