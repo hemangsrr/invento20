@@ -18,8 +18,13 @@
     //<!-- var str = jQuery.param( params ); -->
 
     //<!-- console.log($.urlParam('event')); -->
-     //<!-- console.log(GetParameterValues('event').replace(/%20/g,' ')); -->
-    $('#events').val(GetParameterValues('event').replace(/%20/g,' '));
+    var str = GetParameterValues('event').replace(/%20/g,' ');
+    str = str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+      return letter.toUpperCase();
+    });
+    //alert(str);
+    // console.log(GetParameterValues('event').replace(/%20/g,' '));
+    $('#events').val(str);
     function GetParameterValues(param) {
       var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
       for (var i = 0; i < url.length; i++) {
