@@ -130,14 +130,7 @@ $(document).on('submit','#ambassador_register_form', function(e) {
           <input type="text" name="department" id="department" class="input-text" placeholder=" Your Department" required>
         </div>
       </div>
-      <!--  <div class="form-row-total">
-        <div class="form-row">
-          <input type="text" name="referalcode" id="referalcode" class="input-text" placeholder="Referal Code" hidden>
-        </div>
-       <div class="form-row">
-          <input type="text" name="text" id="department" class="input-text" placeholder=" Your Department" required>
-        </div>
-      </div> -->
+ 
       <div >
          {% if message %}
               {{ message }}
@@ -145,7 +138,7 @@ $(document).on('submit','#ambassador_register_form', function(e) {
        </div>
 
       <div class="form-row-last">
-        <input type="submit" name="register" class="register" value="Register">
+        <input type="submit" name="register" class="register" onclick="return confirm('Your referal code: {{ msg }}')" value="Register">
       </div>
     </form>
     </div>

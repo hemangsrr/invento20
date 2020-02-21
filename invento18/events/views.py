@@ -7,15 +7,11 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-ref_code = 'INV2098'
-current_user_referral = ''
-
-
-
 
 def ambassador_register_view(request):
     last_registration = Ambassador.objects.latest('referal_code')
     ref_code = last_registration.referal_code
+    msg = 'INV'+str(int(ref_code[3:])+1)
     form = AmbassadorForm(request.POST)
     if request.method == 'POST':
         a = Ambassador()
@@ -25,34 +21,19 @@ def ambassador_register_view(request):
         a.phone = request.POST.get('phone')
         a.college = request.POST.get('college')
         a.department = request.POST.get('department')
-        print(Ambassador.objects.filter(email=a.email).count())
 
         if Ambassador.objects.filter(email=a.email).count()==0:
-            ref=int(ref_code[3:])
-            ref +=1
-            a.referal_code = 'INV'+str(ref)
-            ref_code = 'INV'+str(ref)
+            a.referal_code = 'INV'+str(int(ref_code[3:])+1)
             a.points = 0
             a.save()
             return redirect('/ambassador-login')
         else:
             message = "Email already registered!!"
-            return render(request, 'pages/ambassador_register.html', {'form': form, 'message':message})
-       # ref=int(ref_code[3:])
-       # ref +=1
-       # a.referal_code = 'INV'+str(ref)
-       # ref_code = 'INV'+str(ref)
-        #a.points = 0
-        #a.save()
-
-        #return redirect('/ambassador-login')
-        #return render(request, 'pages/login_ambassador.html')
-
-
+            return render(request, 'pages/ambassador_register.html', {'form': form, 'message':message, 'msg':msg})
     else:
         form = AmbassadorForm()
 
-    return render(request, 'pages/ambassador_register.html', {'form': form})
+    return render(request, 'pages/ambassador_register.html', {'form': form, 'msg':msg})
 
 def ambassador_login_view(request):
     form = Loginform(request.POST)
