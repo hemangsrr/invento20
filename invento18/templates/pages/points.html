@@ -3,7 +3,7 @@
 {% block content %}
 <style media="screen">
   table tr:hover td {
-   background-color: #ffffff !important;     
+   background-color: #ffffff !important;
    opacity: 1.0;
 }
 </style>
@@ -29,7 +29,7 @@
                   {% for ambassador in ambassadors %}
                   <tr>
                     <td>{{forloop.counter}}</td>
-                    <td>{{ ambassador.first_name  }}  {{ ambassador.last_name }}</td>
+                    <td>{{ ambassador.first_name  }}  {% if ambassador.last_name != "-" %}{{ ambassador.last_name }}{% endif %}</td>
                     <td>{{ ambassador.referal_code  }}</td>
                     <td>{{ ambassador.points }}</td>
                   </tr>
