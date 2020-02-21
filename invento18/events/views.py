@@ -163,3 +163,6 @@ def caportal(request):
         ref= request.session['referal_code']
         return render(request, 'pages/campus.html',{'ref':ref})
     return render(request, 'pages/campus.html')
+
+def developers(request):
+    return render(request, 'pages/developers.html')
