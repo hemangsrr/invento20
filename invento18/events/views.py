@@ -26,7 +26,7 @@ def ambassador_register_view(request):
             a.referal_code = 'INV'+str(int(ref_code[3:])+1)
             a.points = 0
             a.save()
-            return redirect('/ambassador-login')
+            return redirect('/caportal')
         else:
             message = "Email already registered!!"
             return render(request, 'pages/ambassador_register.html', {'form': form, 'message':message, 'msg':msg})
@@ -156,3 +156,9 @@ def event_register(request):
 
 def campus_ambassador(request):
     return render(request, 'pages/ambassador.html')
+
+def caportal(request):
+    if request.session.has_key('referal_code'):
+        ref= request.session['referal_code']
+        return render(request, 'pages/campus.html',{'ref':ref})
+    return render(request, 'pages/campus.html')
