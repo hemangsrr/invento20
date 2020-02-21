@@ -25,6 +25,7 @@ def ambassador_register_view(request):
         if Ambassador.objects.filter(email=a.email).count()==0:
             a.referal_code = 'INV'+str(int(ref_code[3:])+1)
             a.points = 0
+            request.session['referal_code'] = a.referal_code
             a.save()
             return redirect('/caportal')
         else:
