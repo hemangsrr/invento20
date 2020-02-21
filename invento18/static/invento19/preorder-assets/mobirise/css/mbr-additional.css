@@ -515,6 +515,9 @@ a.text-black:focus {
 .mbr-gallery-filter li.active .btn:focus {
   box-shadow: none;
 }
+.nav{
+  left: 0;
+}
 .nav-tabs .nav-link {
   border-radius: 100px !important;
 }
