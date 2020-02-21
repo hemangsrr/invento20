@@ -156,3 +156,9 @@ def event_register(request):
 
 def campus_ambassador(request):
     return render(request, 'pages/ambassador.html')
+
+def caportal(request):
+    if request.session.has_key('referal_code'):
+        ref= request.session['referal_code']
+        return render(request, 'pages/campus.html',{'ref':ref})
+    return render(request, 'pages/campus.html')
