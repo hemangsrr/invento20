@@ -16,7 +16,17 @@
   .swal2-styled {
     padding: 0px 2em !important;
 }
+#share {
+  height: 38px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 </style>
+<script>
+  $(document).ready(function(){
+    $(document).prop('title', '{{event.title}} - Invento 2020');
+  });
+  </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
             function call_counter(url, pk) {
