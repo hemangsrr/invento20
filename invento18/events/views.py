@@ -26,7 +26,7 @@ def ambassador_register_view(request):
             a.referal_code = 'INV'+str(int(ref_code[3:])+1)
             a.points = 0
             a.save()
-            return redirect('/ambassador-login')
+            return redirect('/caportal')
         else:
             message = "Email already registered!!"
             return render(request, 'pages/ambassador_register.html', {'form': form, 'message':message, 'msg':msg})
