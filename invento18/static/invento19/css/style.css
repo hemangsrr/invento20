@@ -5268,7 +5268,7 @@ input:-moz-placeholder { /* Firefox 18- */
   position: absolute;
   left: 0;
   width: 100%;
-  padding: 60px;
+  padding: 30px;
   outline: 1px solid transparent;
   -webkit-perspective: inherit;
   perspective: inherit;
