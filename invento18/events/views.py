@@ -88,6 +88,12 @@ def logout(request):
 class EventDetailView(DetailView):
     model = Event
     template_name = 'pages/event_detail.html'
+    
+    def get(self, request, **kwargs):
+
+        if request.session.has_key('referal_code'):
+            ref= request.session['referal_code']
+            return render(request, 'pages/event_detail.html',{'ref':ref})
 
 def departmentview(request):
 
