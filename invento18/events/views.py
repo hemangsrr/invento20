@@ -44,6 +44,7 @@ def ambassador_login_view(request):
             post_referal_code = request.POST.get('referal_code')
             current_ambassador = Ambassador.objects.get(pk=post_referal_code, email=post_email)
             request.session['referal_code'] = current_ambassador.referal_code
+            request.session['login'] = 'yes'
 
             return redirect('/leaderboard')
         except:
