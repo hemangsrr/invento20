@@ -89,12 +89,14 @@ def logout(request):
 class EventDetailView(DetailView):
     model = Event
     template_name = 'pages/event_detail.html'
-    
-    def get(self, request, **kwargs):
 
-        if request.session.has_key('referal_code'):
-            ref= request.session['referal_code']
-            return render(request, 'pages/event_detail.html',{'ref':ref})
+    # def get(self, request, **kwargs):
+    #
+    #     if request.session.has_key('referal_code'):
+    #         ref= request.session['referal_code']
+    #         return render(request, 'pages/event_detail.html',{'ref':ref})
+    #     else:
+    #         return render(request, 'pages/event_detail.html')
 
 def departmentview(request):
 
@@ -143,11 +145,11 @@ def event_register_view(request):
         mobile = request.POST["phone"]
         referal_code = request.POST["referal_code"]
         event = request.POST["event"]
-        
+
         if Event_register.objects.filter(email=email, referal_code=referal_code, event=event).count()==0:
             event_register = Event_register(first_name=first_name, college=college, email=email, phone=mobile, referal_code=referal_code, event=event)
             event_register.save()
-          
+
             ambassador = Ambassador.objects.get(referal_code = referal_code)
             ev = Event.objects.get(title = event)
             ambassador.points += ev.fee /10
