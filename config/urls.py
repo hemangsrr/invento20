@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^3d/$', TemplateView.as_view(template_name='pages/3d.html'), name='3d'),
     url(r'share/$', TemplateView.as_view(template_name='pages/ambassador.html'), name='share'),
     url(r'caportal/$', caportal, name='campus-ambassador'),
-    url(r'developers/$', developers, name='developers'),
+    url(r'developer-page/$', developers, name='developers'),
     url(r'proshow/$', TemplateView.as_view(template_name='pages/proshow.html'), name='proshow'),
     url(r'preorder/$', TemplateView.as_view(template_name='pages/preorder.html'), name='preorder'),
     url(r'^events/$', event_register, name='events'),
