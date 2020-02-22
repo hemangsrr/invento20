@@ -123,6 +123,17 @@
         }
     });
     });
+      
+      
+    $("#share-ref").click(function(){
+        var url = window.location.href + "?ref="+ "{{ ref }}" ;
+        Swal.fire({
+          title : "Here is your shareable url!!!",
+          text : url
+        })
+
+  });
+      
     $("#register").on("click", function(e){
       e.preventDefault();
       var ref = $('#referal').val();
@@ -195,7 +206,12 @@
                                           {% else %}
                                           <a class="btn btn-info" href="/events/?event={{event.title}}">Register Now</a>
                                           {% endif %}-->
-                                          <button id="share" class="btn btn-info">Share</button>
+                                      
+                                      {% if ref %}
+                                                <button id="share-ref" class="btn btn-info">Share</button>
+                                           {% else %}
+                                                  <button id="share" class="btn btn-info">Share</button> <br>
+                                           {% endif %}
                                     </div>
                               </div>
                         </div>
