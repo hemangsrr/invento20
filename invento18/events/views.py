@@ -77,7 +77,7 @@ def leaderboard(request):
         return render(request, 'pages/points.html', {"ambassadors":Ambassadors})#{"ambassadors":Ambassadors,"current_ambassador":current_ambassador})
     #else:
         #return render(request, 'pages/points.html', {})
-        
+
 def logout(request):
     try:
         del request.session['referal_code']
@@ -91,14 +91,14 @@ class EventDetailView(DetailView):
     model = Event
     template_name = 'pages/event_detail.html'
 
-     def get(self, request, **kwargs):
-    
-         if request.session.has_key('referal_code'):
+    def get(self, request, **kwargs):
+
+        if request.session.has_key('referal_code'):
             ref= request.session['referal_code']
             event = Event.objects.get(pk=kwargs['pk'])
             return render(request, 'pages/event_detail.html',{'ref':ref, 'event':event})
-         else:
-             return render(request, 'pages/event_detail.html')
+        else:
+            return render(request, 'pages/event_detail.html')
 
 def departmentview(request):
 
