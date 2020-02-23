@@ -26,6 +26,7 @@ def ambassador_register_view(request):
             a.referal_code = 'INV'+str(int(ref_code[3:])+1)
             a.points = 0
             request.session['referal_code'] = a.referal_code
+            request.session['reg_referal_code'] = a.referal_code
             a.save()
             return redirect('/caportal')
         else:
@@ -90,13 +91,14 @@ class EventDetailView(DetailView):
     model = Event
     template_name = 'pages/event_detail.html'
 
-    # def get(self, request, **kwargs):
-    #
-    #     if request.session.has_key('referal_code'):
-    #         ref= request.session['referal_code']
-    #         return render(request, 'pages/event_detail.html',{'ref':ref})
-    #     else:
-    #         return render(request, 'pages/event_detail.html')
+     def get(self, request, **kwargs):
+    
+         if request.session.has_key('referal_code'):
+            ref= request.session['referal_code']
+            event = Event.objects.get(pk=kwargs['pk'])
+            return render(request, 'pages/event_detail.html',{'ref':ref, 'event':event})
+         else:
+             return render(request, 'pages/event_detail.html')
 
 def departmentview(request):
 
@@ -169,7 +171,6 @@ def campus_ambassador(request):
     return render(request, 'pages/ambassador.html')
 
 def caportal(request):
-
     if request.session.has_key('reg_referal_code'):
         ref= request.session['reg_referal_code']
         try:
@@ -179,7 +180,6 @@ def caportal(request):
         if request.session.has_key('referal_code'):
             referal = request.session['referal_code']
         return render(request, 'pages/campus.html',{'ref':ref, 'referal': referal})
-
     return render(request, 'pages/campus.html')
 
 def developers(request):
