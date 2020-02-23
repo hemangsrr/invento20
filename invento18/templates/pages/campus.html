@@ -162,8 +162,14 @@
                     <a class="btn btn-primary display-4" href="{% url 'ambassador-register' %}">
                       <span class="mbri-preview mbr-iconfont"></span>Register Now</a>
                     <br>
+                  
+                      {% if referal %}
+                  <a class="btn btn-primary display-4" href="{% url 'logout' %}">
+                      <span class="mbri-preview mbr-iconfont"></span>Logout</a>
+                      {% else %}
                     <a class="btn btn-primary display-4" href="{% url 'ambassador-login' %}">
                       <span class="mbri-preview mbr-iconfont"></span>Login</a>
+                      {% endif %}
                   </div>
             </div>
             <div class="media-container-column title col-12 col-lg-7 col-md-6">
