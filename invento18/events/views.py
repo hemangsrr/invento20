@@ -91,14 +91,14 @@ class EventDetailView(DetailView):
     model = Event
     template_name = 'pages/event_detail.html'
 
-    # def get(self, request, **kwargs):
-    #
-    #     if request.session.has_key('referal_code'):
-    #         ref= request.session['referal_code']
-    #         event = Event.objects.get(pk=kwargs['pk'])
-    #         return render(request, 'pages/event_detail.html',{'ref':ref, 'event':event})
-    #     else:
-    #         return render(request, 'pages/event_detail.html')
+     def get(self, request, **kwargs):
+         event = Event.objects.get(pk=kwargs['pk'])
+         if request.session.has_key('referal_code'):
+             ref= request.session['referal_code']
+             
+             return render(request, 'pages/event_detail.html',{'ref':ref, 'event':event})
+         else:
+             return render(request, 'pages/event_detail.html',{'event':event})
 
 def departmentview(request):
 
