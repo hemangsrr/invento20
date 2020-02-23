@@ -9,7 +9,7 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(Event_register)
 class Event_registerAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'email', 'referal_code','event')
+    list_display = ('first_name', 'college', 'email', 'phone', 'referal_code', 'event')
     list_filter = ('referal_code', 'event')
 
 @admin.register(Ambassador)
