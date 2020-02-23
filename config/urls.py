@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^ambassador-login/$', ambassador_login_view, name='ambassador-login'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^leaderboard/$', leaderboard, name='leaderboard'),
-    #url(r'^logout/$', logout, name='logout'),
+    url(r'^logout/$', logout, name='logout'),
 
     url(r'api/v1/events/(?P<category>[\w]{1,3})/(?P<_type>[\w]{0,3})', EventList.as_view()),
     url(r'^general/$', departmentview, name='general'),
