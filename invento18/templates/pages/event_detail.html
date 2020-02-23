@@ -189,13 +189,15 @@
                                           <br>
                                           <!-- <button onclick="call_counter('/events/', 12345);">Register Now</button> -->
                                           <!--We have temporarily closed registrations while we fix an error on our database. Sorry for the inconvenience.-->
-                                          {% if event.linkurl %}
-                                          <a class="btn btn-info" href="{{event.linkurl}}">Register Now</a>
-                                          {% elif event.title == "Selfeyaan" or event.title == "Weapon Expo" or event.title == "Electrical Expo" or event.title == "Wheelies" or event.title == "Dr Drive" or event.title == "Evolution Expo" or event.title == "Smart Mirror" or event.title == "Graphical Waterfall" or event.title == "PI Wall" %}
-                                          <button type="button" name="button" style="display : none;">Register</button>
-                                          {% else %}
-                                          <input type="text" name="referal" id="referal" hidden>
-                                          <a id="register" class="btn btn-info" href="/events/?event={{event.title}}&ref=referal.value">Register Now</a>
+                                          {% if event.registration == "yes" %}
+                                            {% if event.linkurl %}
+                                            <a class="btn btn-info" href="{{event.linkurl}}">Register Now</a>
+                                            <!-- {% elif event.title == "Selfeyaan" or event.title == "Weapon Expo" or event.title == "Electrical Expo" or event.title == "Wheelies" or event.title == "Dr Drive" or event.title == "Evolution Expo" or event.title == "Smart Mirror" or event.title == "Graphical Waterfall" or event.title == "PI Wall" %}
+                                            <button type="button" name="button" style="display : none;">Register</button> -->
+                                            {% else %}
+                                            <input type="text" name="referal" id="referal" hidden>
+                                            <a id="register" class="btn btn-info" href="/events/?event={{event.title}}&ref=referal.value">Register Now</a>
+                                            {% endif %}
                                           {% endif %}
                                           <!--{% if event.title == "Blockathon" %}
                                           <a class="btn btn-info" href="https://www.google.com">Register Now</a>
