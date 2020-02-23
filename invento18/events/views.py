@@ -76,10 +76,10 @@ def leaderboard(request):
         return render(request, 'pages/points.html', {"ambassadors":Ambassadors})#{"ambassadors":Ambassadors,"current_ambassador":current_ambassador})
     #else:
         #return render(request, 'pages/points.html', {})
+        
 def logout(request):
     try:
         del request.session['referal_code']
-        print("\n\n\nlogged out\n\n\n")
         return redirect('/')
     except:
         pass
@@ -169,9 +169,17 @@ def campus_ambassador(request):
     return render(request, 'pages/ambassador.html')
 
 def caportal(request):
-    if request.session.has_key('referal_code'):
-        ref= request.session['referal_code']
-        return render(request, 'pages/campus.html',{'ref':ref})
+
+    if request.session.has_key('reg_referal_code'):
+        ref= request.session['reg_referal_code']
+        try:
+            del request.session['reg_referal_code']
+        except:
+            pass
+        if request.session.has_key('referal_code'):
+            referal = request.session['referal_code']
+        return render(request, 'pages/campus.html',{'ref':ref, 'referal': referal})
+
     return render(request, 'pages/campus.html')
 
 def developers(request):
