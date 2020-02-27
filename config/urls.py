@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'caportal/$', caportal, name='campus-ambassador'),
     url(r'developer-page/$', developers, name='developers'),
     url(r'proshow/$', TemplateView.as_view(template_name='pages/proshow.html'), name='proshow'),
+    url(r'proshow1/$', TemplateView.as_view(template_name='pages/proshow1.html'), name='proshow1'),
     url(r'preorder/$', TemplateView.as_view(template_name='pages/preorder.html'), name='preorder'),
     url(r'^events/$', event_register, name='events'),
     url(r'^event-register/$', event_register_view, name='event-register'),
