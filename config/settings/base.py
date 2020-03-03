@@ -37,6 +37,7 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
 
     # Useful template tags:
     # 'django.contrib.humanize',
