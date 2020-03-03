@@ -19,6 +19,9 @@ django-crispy-forms>=1.7.0
 # Models
 django-model-utils>=3.1.1
 
+# Admin import_export
+django-import-export==2.0.2
+
 # Images
 Pillow>=5.0.0
 
