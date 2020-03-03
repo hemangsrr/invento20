@@ -7,11 +7,18 @@
         $("#dropdown-toggle").click(function(){
             $(this).find("#dropdown").slideToggle("fast");
         });
+        $("#dropdown-toggle-1").click(function(){
+            $(this).find("#dropdown1").slideToggle("fast");
+        });
     });
     $(document).on("click", function(event){
         var $trigger = $("#dropdown-toggle");
+        var $trigger1 = $("#dropdown-toggle-1");
         if($trigger !== event.target && !$trigger.has(event.target).length){
             $("#dropdown").slideUp("fast");
+        }
+        if($trigger1 !== event.target && !$trigger.has(event.target).length){
+            $("#dropdown1").slideUp("fast");
         }
     });
 </script>
@@ -60,7 +67,7 @@
                     <div class="single-cat-widget">
                       <div class="content relative">
                         <div class="overlay overlay-bg"></div>
-                        <div class="dropdown-toggle" id="dropdown-toggle" name="dropdown-toggle">
+                        <div class="dropdown-toggle" id="dropdown-toggle-1" name="dropdown-toggle-1">
                           <div class="thumb">
                            <img class="content-image img-fluid d-block mx-auto" src="{% static 'invento19/images/blog/technical.jpg' %}" alt="">
                           </div>
@@ -68,7 +75,7 @@
                             <h4 class="content-title mx-auto text-uppercase"> Technical<br> Events</h4>
                           </div>
                         </div>
-                          <div class="dropdown-menu"  id="dropdown" name="dropdown">
+                          <div class="dropdown-menu"  id="dropdown1" name="dropdown1">
                             <a class="dropdown-item" href="{% url 'cse' %}">CSE Events</a>
                             <a class="dropdown-item" href="{% url 'ece' %}">ECE Events</a>
                             <a class="dropdown-item" href="{% url 'eee' %}">EEE Events</a>
