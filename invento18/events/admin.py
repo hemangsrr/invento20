@@ -7,12 +7,12 @@ from import_export import resources
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', '_type', 'fee', 'prize', 'day','short_desc')#,'long_desc','imageurl','posterurl')
-    list_filter = ('category', '_type', 'fee', 'prize')
+    list_filter = ('category', '_type', 'fee', 'prize', 'day')
 
 class Event_registerResource(resources.ModelResource):
     class Meta:
         model = Event_register
-        
+
 @admin.register(Event_register)
 class Event_registerAdmin(ImportExportModelAdmin):
     resource_class = Event_registerResource
